@@ -1,12 +1,29 @@
 import express from 'express'; // Import express
-import dotenv from 'dotenv'; // Import dotenv
+import 'dotenv/config'; // Load environment variables
+import cors from 'cors'; // Import cors
+
+// Import routes
+import projectRoutes from './routes/projectRoutes.js'; // Import projectRoutes
+import taskRoutes from '.routes/taskRoutes.js';
+import subtaskRoutes from '.routes/subtaskRoutes.js';
+import clientRoutes from './routes/clientRoutes.js'; // Import clientRoutes
+import technicianRoutes from './routes/technicianRoutes.js'; // Import technicianRoutes
+import equipmentRoutes from './routes/equipmentRoutes.js'; // Import equipmentRoutes
+import toolRoutes from './routes/toolRoutes.js'; // Import toolRoutes
+import notificationRoutes from './routes/notificationRoutes.js'; // Import notificationRoutes
+import landingContentRoutes from './routes/landingContentRoutes.js'; // Import landingContentRoutes
+import aboutRoutes from './routes/aboutRoutes.js'; // Import aboutRoutes
+import analyticsRoutes from './routes/analyticsRoutes.js'; // Import analyticsRoutes
+import settingRoutes from './routes/settingRoutes.js'; // Import settingRoutes
+import userRoutes from './routes/userRoutes.js'; // Import userRoutes
+import dashboardRoutes from './routes/dashboardRoutes.js'; // Import dashboardRoutes
+
 // import {
 //     clerkMiddleware,
 //     ClerkRequireAuth,
 //     requireAuth,
 // } from '@clerk/express';
 
-dotenv.config(); // Initialise dotenv
 
 const app = express();
 const port = process.env.PORT || 5002; // Default port is 5002
@@ -51,6 +68,22 @@ app.get('/protected', (req, res) => {
 //     // If the middleware allows the request to proceed, user is authenticated
 //     res.send('This is a protected route! You are authenticated.');
 // });
+
+// Mount routes at specified endpoints
+app.use('/api/projects', projectRoutes);
+app.use('/api/tasks', taskRoutes);
+app.use('/api/subtasks', subtaskRoutes);
+app.use('/api/clients', clientRoutes);
+app.use('/api/technicians', technicianRoutes);
+app.use('/api/equipment', equipmentRoutes);
+app.use('/api/tools', toolRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/settings', settingRoutes);
+app.use('/api/landing-content', landingContentRoutes);
+app.use('/api/about', aboutRoutes);
+app.use('/api/analytics', analyticsRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 app.listen(port, () => {
     console.log(`Projectiva backend listening at http://localhost:${port}`);
