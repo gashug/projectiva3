@@ -1,4 +1,4 @@
-import Task from '../models/taskModel';
+import Task from '../models/Task.js';
 
 class TaskService {
     static async getAllTasks() {

@@ -1,4 +1,4 @@
-import pool from "../db/db";
+import pool from "../db/db.js"; // Import the pool object from the db connection pool
 
 class Technician {
     // Static method to find all technicians

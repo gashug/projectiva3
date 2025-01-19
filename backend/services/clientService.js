@@ -1,4 +1,4 @@
-import Client from '../models/clientModel';
+import Client from '../models/Client.js';
 
 class ClientService {
     // Method to get all clients

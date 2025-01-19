@@ -97,7 +97,7 @@ import bodyParser from 'body-parser';
 import { Webhook } from 'svix';
 
 // Import routes
-import projectRoutes from './routes/projectRoutes.js';
+import projectRoutes from './routes/projectsRoutes.js';
 import taskRoutes from './routes/taskRoutes.js';
 import subtaskRoutes from './routes/subtaskRoutes.js';
 import clientRoutes from './routes/clientRoutes.js';
@@ -105,7 +105,7 @@ import technicianRoutes from './routes/technicianRoutes.js';
 import equipmentRoutes from './routes/equipmentRoutes.js';
 import toolRoutes from './routes/toolRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
-import settingRoutes from './routes/settingRoutes.js';
+import settingRoutes from './routes/settingsRoutes.js';
 import landingContentRoutes from './routes/landingContentRoutes.js';
 import aboutRoutes from './routes/aboutRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';

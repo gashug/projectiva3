@@ -1,4 +1,4 @@
-import pool from "../db/db"; // Import the pool object from the db connection pool
+import pool from "../db/db.js"; // Import the pool object from the db connection pool
 
 class Task {
     // Static method to find all tasks

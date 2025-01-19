@@ -1,50 +1,49 @@
-import SubtaskService from '../services/subtaskService.js';
+import ClientService from '../services/clientService.js';
 
-export const getAllSubtasksByTaskId = async (req, res) => {
+export const getAllClients = async (req, res) => {
   try {
-    const { taskId } = req.params;
-    const subtasks = await SubtaskService.getAllSubtasksByTaskId(taskId);
-    res.status(200).json(subtasks);
+    const clients = await ClientService.getAllClients();
+    res.status(200).json(clients);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export const getSubtaskById = async (req, res) => {
+export const getClientById = async (req, res) => {
   try {
     const { id } = req.params;
-    const subtask = await SubtaskService.getSubtaskById(id);
-    res.status(200).json(subtask);
+    const client = await ClientService.getClientById(id);
+    res.status(200).json(client);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
 
-export const createSubtask = async (req, res) => {
+export const createClient = async (req, res) => {
   try {
-    const subtaskData = req.body;
-    const newSubtask = await SubtaskService.createSubtask(subtaskData);
-    res.status(201).json(newSubtask);
+    const clientData = req.body;
+    const newClient = await ClientService.createClient(clientData);
+    res.status(201).json(newClient);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
 
-export const updateSubtask = async (req, res) => {
+export const updateClient = async (req, res) => {
   try {
     const { id } = req.params;
-    const subtaskData = req.body;
-    const updatedSubtask = await SubtaskService.updateSubtask(id, subtaskData);
-    res.status(200).json(updatedSubtask);
+    const clientData = req.body;
+    const updatedClient = await ClientService.updateClient(id, clientData);
+    res.status(200).json(updatedClient);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
 
-export const deleteSubtask = async (req, res) => {
+export const deleteClient = async (req, res) => {
   try {
     const { id } = req.params;
-    await SubtaskService.deleteSubtask(id);
+    await ClientService.deleteClient(id);
     res.status(204).send();
   } catch (error) {
     res.status(404).json({ message: error.message });

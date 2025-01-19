@@ -1,4 +1,4 @@
-import ToolService from '../services/toolService.js';
+import ToolService from '../services/toolsService.js';
 
 export const getAllTools = async (req, res) => {
   try {

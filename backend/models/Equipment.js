@@ -1,4 +1,4 @@
-import pool from "../db/db";
+import pool from "../db/db.js";
 
 class Equipment {
     // Static method to find all equipment

@@ -1,4 +1,4 @@
-import Technician from '../models/technicianModel.js';
+import Technician from '../models/Technician.js';
 
 class TechnicianService {
     static async getAllTechnicians() {

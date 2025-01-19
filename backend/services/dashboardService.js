@@ -1,4 +1,4 @@
-import ProjectService from './projectService.js';
+import ProjectService from './projectsService.js';
 import TaskService from './taskService.js';
 import AnalyticsService from './analyticsService.js';
 // ... import other services as needed

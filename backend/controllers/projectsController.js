@@ -1,5 +1,5 @@
 // Initialize express router
-import ProjectService from '../services/projectService';
+import ProjectService from '../services/projectsService.js';
 
 // Get all projects
 export const getAllProjects = async (req, res) => {

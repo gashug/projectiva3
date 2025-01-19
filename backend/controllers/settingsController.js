@@ -1,4 +1,4 @@
-import SettingService from '../services/settingService.js';
+import SettingService from '../services/settingsService.js';
 
 export const getAllSettings = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-import pool from "../db/db";
+import pool from "../db/db.js";
 
 class Analytics {
     // Method to get overall analytics data
