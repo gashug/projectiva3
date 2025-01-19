@@ -1,4 +1,8 @@
-const express = require('express');
+import express from 'express'; // Import express
+import dotenv from 'dotenv'; // Import dotenv
+
+dotenv.config(); // Initialise dotenv
+
 // const authMiddleware = require('./middlewares/authMiddleware'); // Import the authMiddleware
 const app = express();
 const port = process.env.PORT || 5002; // Default port is 5002
