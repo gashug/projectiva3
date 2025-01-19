@@ -1,4 +1,4 @@
-const { ClerkExpressRequireAuth } = require('@clerk/clerk-sdk-node');
+import { ClerkExpressRequireAuth } from '@clerk/express';
 
 const authMiddleware = ClerkExpressRequireAuth({
     // You can add options here if needed, for example:
