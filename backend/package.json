@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate:create": "node-pg-migrate create",
-    "migrate:up": "node-pg-migrate up",
-    "migrate:down": "node-pg-migrate down",
-    "migrate:redo": "node-pg-migrate redo"
+    "migrate:create": "node-pg-migrate --configFile migrate-config.js create",
+    "migrate:up": "node-pg-migrate --configFile migrate-config.js up",
+    "migrate:down": "node-pg-migrate --configFile migrate-config.js down",
+    "migrate:redo": "node-pg-migrate --configFile migrate-config.js redo"
   },
   "keywords": [],
   "author": "",
