@@ -146,7 +146,7 @@ app.use('/api/tools', toolRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/settings', settingRoutes);
 app.use('/api/landing-content', landingContentRoutes);
-app.use('/api/about', aboutRoutes);
+// app.use('/api/about', aboutRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/users', userRoutes);
