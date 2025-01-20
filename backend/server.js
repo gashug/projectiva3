@@ -114,8 +114,12 @@ import userRoutes from './routes/userRoutes.js';
 
 import { syncUser } from './controllers/userController.js';
 
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
+
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5002;
+const swaggerDocument = YAML.load('./docs/openapi.yaml');
 
 // Enable Cross-Origin Resource Sharing (CORS)
 app.use(cors());
@@ -150,6 +154,9 @@ app.use('/api/landing-content', landingContentRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/users', userRoutes);
+
+// Serve the Swagger UI at /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Use the body-parser middleware to parse raw request body
 app.use(bodyParser.raw({ type: 'application/json' }));

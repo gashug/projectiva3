@@ -1,0 +1,1755 @@
+openapi: 3.0.0
+info:
+  title: Projectiva API
+  version: 1.0.0
+  description: API documentation for the Projectiva project management application.
+servers:
+  - url: http://localhost:5002/api
+    description: Local development server
+paths:
+  /projects:
+    # Add a new GET method to retrieve all projects
+    get:
+      summary: Get all projects
+      tags:
+        - Projects
+      responses:
+        '200':
+          description: Successful response - returns an array of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    # Add a new POST method to create a new project
+    post:
+      summary: Create a new project
+      tags:
+        - Projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '201':
+          description: Project created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  /projects/{id}:
+    # Add a new GET method to retrieve a project by ID
+    get:
+      summary: Get a project by ID
+      tags:
+        - Projects
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the project to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a project
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '404':
+          description: Project not found
+    # Add a new PUT method to update a project by ID
+    put:
+        summary: Update a project by ID
+        tags:
+          - Projects
+        parameters:
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: integer
+            description: The ID of the project to update.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        responses:
+          '200':
+            description: Project updated successfully
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Project'
+          '400':
+            description: Bad request (e.g., invalid input data)
+          '404':
+            description: Project not found
+    # Add a new DELETE method to delete a project by ID
+    delete:
+      summary: Delete a project by ID
+      tags:
+        - Projects
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the project to delete.
+      responses:
+        '204':
+          description: Project deleted successfully
+        '404':
+          description: Project not found
+  /projects/client/{clientId}:
+    # Add a new GET method to retrieve projects by client ID
+    get:
+      summary: Get projects by client ID
+      tags:
+        - Projects
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          schema:
+            type: integer
+          description: The ID of the client to retrieve projects for.
+      responses:
+        '200':
+          description: Successful response - returns an array of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        '404':
+          description: Client not found or no projects found for this client
+  # Add a new path /tasks:
+  /tasks:
+    # Add a new GET method to retrieve all tasks
+    get:
+      summary: Get all tasks
+      tags:
+        - Tasks
+      responses:
+        '200':
+          description: Successful response - returns an array of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+    # Add a new POST method to create a new task
+    post:
+      summary: Create a new task
+      tags:
+        - Tasks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path /tasks/{id}:
+  /tasks/{id}:
+    # Add a new GET method to retrieve a task by ID
+    get:
+      summary: Get a task by ID
+      tags:
+        - Tasks
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the task to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task not found
+    # Add a new PUT method to update a task by ID
+    put:
+      summary: Update a task by ID
+      tags:
+        - Tasks
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the task to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Task not found
+    # Add a new DELETE method to delete a task by ID
+    delete:
+      summary: Delete a task by ID
+      tags:
+        - Tasks
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the task to delete.
+      responses:
+        '204':
+          description: Task deleted successfully
+        '404':
+          description: Task not found
+  # Add a new path /tasks/project/{projectId}:
+  /tasks/project/{projectId}:
+    # Add a new GET method to retrieve tasks by project ID
+    get:
+      summary: Get tasks by project ID
+      tags:
+        - Tasks
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+          description: The ID of the project to retrieve tasks for.
+      responses:
+        '200':
+          description: Successful response - returns an array of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+        '404':
+          description: Project not found or no tasks found for this project
+  # Add a new path /subtasks:
+  /subtasks/task/{taskId}:
+    # Add a new GET method to retrieve subtasks by task ID
+    get:
+      summary: Get subtasks by task ID
+      tags:
+        - Subtasks
+      parameters:
+        - in: path
+          name: taskId
+          required: true
+          schema:
+            type: integer
+          description: The ID of the task to retrieve subtasks for.
+      responses:
+        '200':
+          description: Successful response - returns an array of subtasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subtask'
+        '404':
+          description: Task not found or no subtasks found for this task
+  # Add a new POST method to create a new subtask
+  /subtasks:
+    # Add a new POST method to create a new subtask
+    post:
+      summary: Create a new subtask
+      tags:
+        - Subtasks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subtask'
+      responses:
+        '201':
+          description: Subtask created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subtask'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path /subtasks/{id}:
+  /subtasks/{id}:
+    # Add a new GET method to retrieve a subtask by ID
+    get:
+      summary: Get a subtask by ID
+      tags:
+        - Subtasks
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the subtask to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a subtask
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subtask'
+        '404':
+          description: Subtask not found
+    # Add a new PUT method to update a subtask by ID
+    put:
+      summary: Update a subtask by ID
+      tags:
+        - Subtasks
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the subtask to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subtask'
+      responses:
+        '200':
+          description: Subtask updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subtask'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Subtask not found
+    # Add a new DELETE method to delete a subtask by ID
+    delete:
+      summary: Delete a subtask by ID
+      tags:
+        - Subtasks
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the subtask to delete.
+      responses:
+        '204':
+          description: Subtask deleted successfully
+        '404':
+          description: Subtask not found
+  # Add a new path /clients:
+  /clients:
+    # Add a new GET method to retrieve all clients
+    get:
+      summary: Get all clients
+      tags:
+        - Clients
+      responses:
+        '200':
+          description: Successful response - returns an array of clients
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Client'
+    # Add a new POST method to create a new client
+    post:
+      summary: Create a new client
+      tags:
+        - Clients
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+      responses:
+        '201':
+          description: Client created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path
+  /clients/{id}:
+    # Add a new GET method to retrieve a client by ID
+    get:
+      summary: Get a client by ID
+      tags:
+        - Clients
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the client to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a client
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+        '404':
+          description: Client not found
+    # Add a new PUT method to update a client by ID
+    put:
+      summary: Update a client by ID
+      tags:
+        - Clients
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the client to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+      responses:
+        '200':
+          description: Client updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Client not found
+    # Add a new DELETE method to delete a client by ID
+    delete:
+      summary: Delete a client by ID
+      tags:
+        - Clients
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the client to delete.
+      responses:
+        '204':
+          description: Client deleted successfully
+        '404':
+          description: Client not found
+  # Add a new path /technicians:
+  /technicians:
+    # Add a new GET method to retrieve all technicians
+    get:
+      summary: Get all technicians
+      tags:
+        - Technicians
+      responses:
+        '200':
+          description: Successful response - returns an array of technicians
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Technician'
+    # Add a new POST method to create a new technician
+    post:
+      summary: Create a new technician
+      tags:
+        - Technicians
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Technician'
+      responses:
+        '201':
+          description: Technician created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Technician'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path /technicians/{id}:
+  /technicians/{id}:
+    # Add a new GET method to retrieve a technician by ID
+    get:
+      summary: Get a technician by ID
+      tags:
+        - Technicians
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the technician to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a technician
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Technician'
+        '404':
+          description: Technician not found
+    # Add a new PUT method to update a technician by ID
+    put:
+      summary: Update a technician by ID
+      tags:
+        - Technicians
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the technician to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Technician'
+      responses:
+        '200':
+          description: Technician updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Technician'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Technician not found
+    # Add a new DELETE method to delete a technician by ID
+    delete:
+      summary: Delete a technician by ID
+      tags:
+        - Technicians
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the technician to delete.
+      responses:
+        '204':
+          description: Technician deleted successfully
+        '404':
+          description: Technician not found
+  # Add a new path /equipment:
+  /equipment:
+    # Add a new GET method to retrieve all equipment
+    get:
+      summary: Get all equipment
+      tags:
+        - Equipment
+      responses:
+        '200':
+          description: Successful response - returns an array of equipment
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Equipment'
+    # Add a new POST method to create a new equipment
+    post:
+      summary: Create new equipment
+      tags:
+        - Equipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Equipment'
+      responses:
+        '201':
+          description: Equipment created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Equipment'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path /equipment/{id}:
+  /equipment/{id}:
+    # Add a new GET method to retrieve equipment by ID
+    get:
+      summary: Get equipment by ID
+      tags:
+        - Equipment
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the equipment to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns equipment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Equipment'
+        '404':
+          description: Equipment not found
+    # Add a new PUT method to update equipment by ID
+    put:
+      summary: Update equipment by ID
+      tags:
+        - Equipment
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the equipment to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Equipment'
+      responses:
+        '200':
+          description: Equipment updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Equipment'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Equipment not found
+    # Add a new DELETE method to delete equipment by ID
+    delete:
+      summary: Delete equipment by ID
+      tags:
+        - Equipment
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the equipment to delete.
+      responses:
+        '204':
+          description: Equipment deleted successfully
+        '404':
+          description: Equipment not found
+  # Add a new path /tools:
+  /tools:
+    # Add a new GET method to retrieve all tools
+    get:
+      summary: Get all tools
+      tags:
+        - Tools
+      responses:
+        '200':
+          description: Successful response - returns an array of tools
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tool'
+    # Add a new POST method to create a new tool
+    post:
+      summary: Create new tool
+      tags:
+        - Tools
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tool'
+      responses:
+        '201':
+          description: Tool created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tool'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path /tools/{id}:
+  /tools/{id}:
+    # Add a new GET method to retrieve tool by ID
+    get:
+      summary: Get tool by ID
+      tags:
+        - Tools
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the tool to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns tool
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tool'
+        '404':
+          description: Tool not found
+    # Add a new PUT method to update tool by ID
+    put:
+      summary: Update tool by ID
+      tags:
+        - Tools
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the tool to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tool'
+      responses:
+        '200':
+          description: Tool updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tool'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Tool not found
+    # Add a new DELETE method to delete tool by ID
+    delete:
+      summary: Delete tool by ID
+      tags:
+        - Tools
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the tool to delete.
+      responses:
+        '204':
+          description: Tool deleted successfully
+        '404':
+          description: Tool not found
+  # Add a new path /notifications:
+  /notifications:
+    # Add a new GET method to retrieve all notifications
+    get:
+      summary: Get all notifications
+      tags:
+        - Notifications
+      responses:
+        '200':
+          description: Successful response - returns an array of notifications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+    # Add a new POST method to create a new notification
+    post:
+      summary: Create a new notification
+      tags:
+        - Notifications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '201':
+          description: Notification created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path /notifications/{id}:
+  /notifications/{id}:
+    # Add a new GET method to retrieve a notification by ID
+    get:
+      summary: Get a notification by ID
+      tags:
+        - Notifications
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the notification to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a notification
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '404':
+          description: Notification not found
+    # Add a new PUT method to update a notification by ID
+    put:
+      summary: Update a notification by ID
+      tags:
+        - Notifications
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the notification to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '200':
+          description: Notification updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Notification not found
+    # Add a new DELETE method to delete a notification by ID
+    delete:
+      summary: Delete a notification by ID
+      tags:
+        - Notifications
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the notification to delete.
+      responses:
+        '204':
+          description: Notification deleted successfully
+        '404':
+          description: Notification not found
+  # Add a new path /notifications/user/{userId}:
+  /notifications/user/{userId}:
+    get:
+      summary: Get notifications by user ID
+      tags:
+        - Notifications
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+          description: The ID of the user to retrieve notifications for.
+      responses:
+        '200':
+          description: Successful response - returns an array of notifications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+        '404':
+          description: User not found or no notifications found for this user
+    # Add a new path /settings:
+    /settings:
+    # Add a new GET method to retrieve all settings
+    get:
+      summary: Get all settings
+      tags:
+        - Settings
+      responses:
+        '200':
+          description: Successful response - returns an array of settings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Setting'
+    # Add a new POST method to create a new setting
+    post:
+      summary: Create a new setting
+      tags:
+        - Settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Setting'
+      responses:
+        '201':
+          description: Setting created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setting'
+        '400':
+          description: Bad request (e.g., invalid input data)
+  # Add a new path /settings/{id}:
+  /settings/{id}:
+    # Add a new GET method to retrieve a setting by ID
+    get:
+      summary: Get a setting by ID
+      tags:
+        - Settings
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the setting to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a setting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setting'
+        '404':
+          description: Setting not found
+    # Add a new PUT method to update a setting by ID
+    put:
+      summary: Update a setting by ID
+      tags:
+        - Settings
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the setting to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Setting'
+      responses:
+        '200':
+          description: Setting updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setting'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Setting not found
+    # Add a new DELETE method to delete a setting by ID
+    delete:
+      summary: Delete a setting by ID
+      tags:
+        - Settings
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the setting to delete.
+      responses:
+        '204':
+          description: Setting deleted successfully
+        '404':
+          description: Setting not found
+  # Add a new path /settings/name/{name}:
+  /settings/name/{name}:
+    # Add a new GET method to retrieve a setting by name
+    get:
+      summary: Get a setting by name
+      tags:
+        - Settings
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+          description: The name of the setting to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a setting
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setting'
+        '404':
+          description: Setting not found
+  # Add a new path /settings/reset:
+  /settings/{id}/reset:
+    # Add a new PATCH method to reset a setting to its default value
+    patch:
+      summary: Reset a setting to its default value
+      tags:
+        - Settings
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the setting to reset.
+      responses:
+        '200':
+          description: Setting reset successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setting'
+        '404':
+          description: Setting not found
+  # Add a new path /settings/reset:
+  /settings/reset:
+    # Add a new PATCH method to reset all settings to their default values
+    patch:
+      summary: Reset all settings to their default values
+      tags:
+        - Settings
+      responses:
+        '204':
+          description: All settings reset successfully
+  # Add a new path /landingcontent
+  /landing-content:
+    get:
+      summary: Get all landing page content
+      tags:
+        - Landing Content
+      responses:
+        '200':
+          description: Successful response - returns an array of landing content items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandingContent'
+    post:
+      summary: Create new landing page content
+      tags:
+        - Landing Content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LandingContent'
+      responses:
+        '201':
+          description: Landing content created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingContent'
+        '400':
+          description: Bad request (e.g., invalid input data)
+
+  /landing-content/{id}:
+    get:
+      summary: Get landing page content by ID
+      tags:
+        - Landing Content
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the landing content to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns landing content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingContent'
+        '404':
+          description: Landing content not found
+    put:
+      summary: Update landing page content by ID
+      tags:
+        - Landing Content
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the landing content to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LandingContent'
+      responses:
+        '200':
+          description: Landing content updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingContent'
+        '400':
+          description: Bad request (e.g., invalid input data)
+        '404':
+          description: Landing content not found
+    delete:
+      summary: Delete landing page content by ID
+      tags:
+        - Landing Content
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the landing content to delete.
+      responses:
+        '204':
+          description: Landing content deleted successfully
+        '404':
+          description: Landing content not found
+
+  /landing-content/section/{sectionName}:
+    get:
+      summary: Get landing page content by section name
+      tags:
+        - Landing Content
+      parameters:
+        - in: path
+          name: sectionName
+          required: true
+          schema:
+            type: string
+          description: The name of the section to retrieve content for.
+      responses:
+        '200':
+          description: Successful response - returns landing content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingContent'
+        '404':
+          description: Landing content not found for this section
+  # Add a new path /users:
+  /users/clerk/{clerkUserId}:
+    # Add a new GET method to retrieve a user by Clerk User ID
+    get:
+      summary: Get user by Clerk User ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: clerkUserId
+          required: true
+          schema:
+            type: string
+          description: The Clerk User ID of the user to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
+  # Add a new path /users:
+  /users/{id}:
+    # Add a new GET method to retrieve a user by ID
+    get:
+      summary: Get user by ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the user to retrieve.
+      responses:
+        '200':
+          description: Successful response - returns a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
+  # webhook path for Clerk webhooks
+  /webhooks:
+    post:
+      summary: Handle Clerk webhooks
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: The type of webhook event (e.g., 'user.created', 'user.updated').
+                  example: "user.created"
+                data:
+                  type: object
+                  description: The data payload of the webhook event.
+                  # You might want to define a more specific schema for the data payload based on the expected events.
+      responses:
+        '200':
+          description: Webhook received and processed successfully
+        '400':
+          description: Webhook verification failed
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    # Define the Project schema 
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The project ID.
+        name:
+          type: string
+          description: The name of the project.
+        type:
+          type: string
+          description: The type of project.
+        department:
+          type: string
+          description: The department the project belongs to.
+        client_id:
+          type: integer
+          description: The ID of the client associated with the project.
+        location:
+          type: string
+          description: The location of the project.
+        start_date:
+          type: string
+          format: date
+          description: The start date of the project.
+        end_date:
+          type: string
+          format: date
+          description: The end date of the project.
+        status:
+          type: string
+          description: The status of the project (e.g., Pending, In Progress, Completed).
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the project was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the project was last updated.
+      example:
+        id: 1
+        name: Example Project
+        type: Web Development
+        department: IT
+        client_id: 2
+        location: Remote
+        start_date: 2024-01-15
+        end_date: 2024-05-30
+        status: Pending
+        created_at: 2024-01-10T08:00:00Z
+        updated_at: 2024-01-10T08:00:00Z
+    # Define the Task schema
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The task ID.
+          example: 1
+        project_id:
+          type: integer
+          description: The ID of the project this task belongs to.
+          example: 2
+        name:
+          type: string
+          description: The name of the task.
+          example: "Implement user authentication"
+        assigned_to:
+          type: integer
+          description: The ID of the user or technician assigned to the task.
+          example: 3
+        due_date:
+          type: string
+          format: date
+          description: The due date of the task.
+          example: "2024-04-15"
+        status:
+          type: string
+          description: The status of the task (e.g., To Do, In Progress, Completed).
+          example: "In Progress"
+        priority:
+          type: string
+          description: The priority of the task (e.g., Low, Medium, High).
+          example: "High"
+        description:
+          type: string
+          description: A detailed description of the task.
+          example: "Implement user authentication using Clerk and OAuth 2.0."
+        attachments:
+          type: array
+          description: An array of attachments associated with the task.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The name of the attachment.
+                example: "design_document.pdf"
+              url:
+                type: string
+                description: The URL where the attachment can be accessed.
+                example: "https://example.com/attachments/design_document.pdf"
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the task was created.
+          example: "2024-03-15T09:30:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the task was last updated.
+          example: "2024-03-15T14:45:00Z"
+      required:
+        - name
+        - project_id
+    # Define the Subtask schema
+    Subtask:
+        type: object
+        properties:
+          id:
+            type: integer
+            description: The subtask ID.
+            example: 1
+          task_id:
+            type: integer
+            description: The ID of the task this subtask belongs to.
+            example: 2
+          name:
+            type: string
+            description: The name of the subtask.
+            example: "Set up database connection"
+          is_completed:
+            type: boolean
+            description: Whether the subtask is completed or not.
+            example: false
+          created_at:
+            type: string
+            format: date-time
+            description: The timestamp when the subtask was created.
+            example: "2024-03-15T10:00:00Z"
+          updated_at:
+            type: string
+            format: date-time
+            description: The timestamp when the subtask was last updated.
+            example: "2024-03-15T11:00:00Z"
+        required:
+          - name
+          - task_id
+    # Define the Client schema
+    Client:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The client ID.
+          example: 1
+        name:
+          type: string
+          description: The name of the client.
+          example: "Acme Corporation"
+        industry:
+          type: string
+          description: The industry the client belongs to.
+          example: "Technology"
+        contact_info:
+          type: object
+          description: Contact information for the client.
+          properties:
+            email:
+              type: string
+              format: email
+              example: "info@acme.com"
+            phone:
+              type: string
+              example: "555-123-4567"
+        location:
+          type: object
+          description: Location information for the client.
+          properties:
+            address:
+              type: string
+              example: "123 Main St"
+            city:
+              type: string
+              example: "Anytown"
+            state:
+              type: string
+              example: "CA"
+            zip:
+              type: string
+              example: "90210"
+        notes:
+          type: string
+          description: Any notes about the client.
+          example: "Important client for the company."
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the client was created.
+          example: "2024-03-15T11:30:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the client was last updated.
+          example: "2024-03-15T15:45:00Z"
+      required:
+        - name
+    # Define the Technician Schema
+    Technician:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The technician ID.
+          example: 1
+        name:
+          type: string
+          description: The name of the technician.
+          example: "John Doe"
+        role:
+          type: string
+          description: The role of the technician.
+          example: "Electrician"
+        availability:
+          type: string
+          description: The availability status of the technician.
+          example: "Available"
+        skills:
+          type: array
+          description: An array of skills the technician possesses.
+          items:
+            type: string
+          example:
+            - "Electrical Wiring"
+            - "Troubleshooting"
+        contact_details:
+          type: object
+          description: Contact information for the technician.
+          properties:
+            email:
+              type: string
+              format: email
+              example: "john.doe@example.com"
+            phone:
+              type: string
+              example: "555-987-6543"
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the technician was created.
+          example: "2024-03-15T12:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the technician was last updated.
+          example: "2024-03-15T16:30:00Z"
+      required:
+        - name
+    # Define the Equipment Schema
+    Equipment:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The equipment ID.
+          example: 1
+        name:
+          type: string
+          description: The name of the equipment.
+          example: "Laptop"
+        manufacturer:
+          type: string
+          description: The manufacturer of the equipment.
+          example: "Dell"
+        model:
+          type: string
+          description: The model of the equipment.
+          example: "XPS 13"
+        serial_number:
+          type: string
+          description: The serial number of the equipment.
+          example: "ABCDEFG1234567"
+        condition:
+          type: string
+          description: The condition of the equipment (e.g., New, Good, Fair, Poor).
+          example: "Good"
+        quantity:
+          type: integer
+          description: The quantity of the equipment.
+          example: 1
+        assigned_to_project:
+          type: integer
+          description: The ID of the project to which the equipment is assigned (if any).
+          example: 5
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the equipment was created.
+          example: "2024-03-15T13:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the equipment was last updated.
+          example: "2024-03-15T17:15:00Z"
+      required:
+        - name
+    # Define the Tool schema
+    Tool:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The tool ID.
+          example: 1
+        name:
+          type: string
+          description: The name of the tool.
+          example: "Hammer"
+        type:
+          type: string
+          description: The type of the tool.
+          example: "Hand Tool"
+        condition:
+          type: string
+          description: The condition of the tool (e.g., New, Good, Fair, Poor).
+          example: "Good"
+        purchase_date:
+          type: string
+          format: date-time
+          description: The date and time the tool was purchased.
+          example: "2023-01-10T14:30:00Z"
+        assigned_to_project:
+          type: integer
+          description: The ID of the project to which the tool is assigned (if any).
+          example: 3
+        assigned_to_technician:
+          type: integer
+          description: The ID of the technician to which the tool is assigned (if any).
+          example: 2
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the tool was created in the system.
+          example: "2023-01-10T14:30:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the tool was last updated.
+          example: "2023-01-15T09:45:00Z"
+      required:
+        - name
+        - type
+    # Define the Notification schema
+    Notification:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The notification ID.
+          example: 1
+        user_id:
+          type: integer
+          description: The ID of the user associated with the notification.
+          example: 3
+        message:
+          type: string
+          description: The notification message.
+          example: "Task 'Design Database Schema' has been completed."
+        read:
+          type: boolean
+          description: Whether the notification has been read or not.
+          example: false
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the notification was created.
+          example: "2024-03-15T16:00:00Z"
+      required:
+        - user_id
+        - message
+    # Define the Settings schema
+    Setting:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The setting ID.
+          example: 1
+        name:
+          type: string
+          description: The unique name of the setting.
+          example: "timezone"
+        value:
+          type: string
+          description: The current value of the setting.
+          example: "America/New_York"
+        default_value:
+          type: string
+          description: The default value of the setting.
+          example: "UTC"
+        description:
+          type: string
+          description: A description of the setting.
+          example: "Sets the application's default timezone."
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the setting was last updated.
+          example: "2024-03-15T18:00:00Z"
+      required:
+        - name
+    # Define the Landing Content schema
+    LandingContent:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The landing content ID.
+          example: 1
+        section_name:
+          type: string
+          description: The name of the section (e.g., hero, features, about).
+          example: "hero"
+        content:
+          type: object
+          description: The content of the section, can be any valid JSON structure.
+          example:
+            title: "Welcome to Projectiva"
+            subtitle: "Your all-in-one project management solution."
+            buttonText: "Get Started"
+            buttonLink: "/signup"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the landing content was last updated.
+          example: "2024-03-15T19:00:00Z"
+      required:
+        - section_name
+        - content
+    # Define the User schema
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The user ID.
+          example: 1
+        clerk_user_id:
+          type: string
+          description: The ID of the user in Clerk.
+          example: "user_2cS5UzdbRFHlL7v959jWEpDq1rU"
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the user was created.
+          example: "2024-03-15T19:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the user was last updated.
+          example: "2024-03-15T19:00:00Z"
+      required:
+        - clerk_user_id
