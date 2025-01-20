@@ -27,36 +27,38 @@
 // Path: frontend/src/App.js
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/DashboardPage';
-import ProjectsPage from './pages/ProjectsPage';
-import ProjectDetailsPage from './pages/ProjectDetailsPage';
-import TasksPage from './pages/TasksPage';
-import ResourcesPage from './pages/ResourcesPage';
-import ClientsPage from './pages/ClientsPage';
-import AnalyticsPage from './pages/AnalyticsPage';
-import AdminPage from './pages/AdminPage';
-import LandingPage  from './pages/LandingPage';
-import FeaturesPage from './pages/FeaturesPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+import DashboardPage from './pages/DashboardPage.js';
+import ProjectsPage from './pages/ProjectDetailsPage.js';
+import ProjectDetailsPage from './pages/ProjectDetailsPage.js';
+import TasksPage from './pages/TasksPage.js';
+import ResourcesPage from './pages/ResourcesPage.js';
+import ClientsPage from './pages/ClientsPage.js';
+import AnalyticsPage from './pages/AnalyticsPage.js';
+import AdminPage from './pages/AdminPage.js';
+import LandingPage  from './pages/LandingPage.js';
+import FeaturesPage from './pages/FeaturesPage.js';
+import AboutPage from './pages/AboutPage.js';
+import ContactPage from './pages/ContactPage.js';
+import Layout from './components/common/Layout.js';
 
 // import './App.css';
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
-        <Route path="/tasks" element={<TasksPage />} />
-        <Route path="/resources" element={<ResourcesPage />} />
-        <Route path="/clients" element={<ClientsPage />} />
-        <Route path="/analytics" element={<AnalyticsPage />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/" element={<Layout><LandingPage /></Layout>} />
+        <Route path="/dashboard" element={<Layout><DashboardPage /></Layout>} />
+        <Route path="/projects" element={<Layout><ProjectsPage /></Layout>} />
+        <Route path="/projects/:id" element={<Layout><ProjectDetailsPage /></Layout>} />
+        <Route path="/tasks" element={<Layout><TasksPage /></Layout>} />
+        <Route path="/resources" element={<Layout><ResourcesPage /></Layout>} />
+        <Route path="/clients" element={<Layout><ClientsPage /></Layout>} />
+        <Route path="/analytics" element={<Layout><AnalyticsPage /></Layout>} />
+        <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
+        <Route path="/features" element={<Layout><FeaturesPage /></Layout>} />
+        <Route path="/about" element={<Layout><AboutPage /></Layout>} />
+        <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
+        {/* Add more routes for other pages */}
       </Routes>
     </BrowserRouter>
   );
