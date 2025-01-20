@@ -107,7 +107,7 @@ import toolRoutes from './routes/toolRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
 import settingRoutes from './routes/settingsRoutes.js';
 import landingContentRoutes from './routes/landingContentRoutes.js';
-import aboutRoutes from './routes/aboutRoutes.js';
+// import aboutRoutes from './routes/aboutRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
 import userRoutes from './routes/userRoutes.js';
