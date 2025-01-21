@@ -1,0 +1,77 @@
+:root {
+    /* Define color palette using CSS variables */
+    --primary-color: #0d6efd; /* Example blue color */
+    --secondary-color: #6c757d; /* Example: Gray */
+    --accent-color: #00b050; /* Example: Green */
+    --background-color: #f8f9fa; /* Example: Light Gray */
+    --text-color: #212529; /* Example: Dark Gray */
+    --heading-font: 'Lato', sans-serif; /* Example: Lato Bold */
+    --body-font: 'Roboto', sans-serif; /* Example: Roboto Regular */
+}
+
+body {
+    font-family: var(--body-font);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+  font-weight: 700; /* Bold */
+  line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem; /* Adjust as needed */
+  }
+  
+  h2 {
+    font-size: 2rem; /* Adjust as needed */
+  }
+  
+  h3 {
+    font-size: 1.75rem; /* Adjust as needed */
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0b5ed7; /* Darken primary color on hover */
+  }
+
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px; /* Reduce base font size for smaller screens */
+    }
+  
+    h1 {
+      font-size: 2rem; /* Adjust heading sizes */
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    /* Add more global styles for smaller screens as needed */
+  }
