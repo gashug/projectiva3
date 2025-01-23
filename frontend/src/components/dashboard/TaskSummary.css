@@ -1,0 +1,68 @@
+/* .task-summary {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-summary-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .task-summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .task-summary-label {
+    font-weight: bold;
+  } */
+
+  .task-summary {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #e9ecef; /* Light gray border */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .task-summary-title {
+    font-size: 1.6rem; /* Slightly larger title */
+    color: #333; /* Dark gray color */
+    margin-bottom: 15px;
+  }
+  
+  .task-summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .task-summary-label {
+    font-size: 1rem;
+    color: #555; /* Medium gray color */
+    font-weight: 600;
+  }
+  
+  .task-summary-value {
+    font-size: 1rem;
+    color: #333; /* Dark gray color */
+  }
+
+  .filter-container {
+    margin-bottom: 15px; /* Add some space above the chart */
+  }
+  
+  .filter-container label {
+    margin-right: 10px;
+  }
+  
+  .filter-container select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }

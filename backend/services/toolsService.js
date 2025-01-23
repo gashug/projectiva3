@@ -63,6 +63,24 @@ class ToolService {
       throw new Error('Failed to delete tool.');
     }
   }
+
+  static async getToolSummary() {
+    try {
+      const allTools = await Tool.findAll();
+
+      return {
+        totalTools: allTools.length,
+        availableTools: allTools.filter((tool) => tool.assigned_to_project === null && tool.assigned_to_technician === null).length, // Example: Check if not assigned
+        assignedTools: allTools.filter((tool) => tool.assigned_to_project !== null || tool.assigned_to_technician !== null).length,
+        toolsNeedingRepair: allTools.filter((tool) => tool.condition === "Needs Repair").length, // Example condition
+        toolDetails: allTools, // You might want to refine this to include only necessary data
+      };
+    } catch (error) {
+      console.error('Error fetching tool summary:', error);
+      throw new Error('Failed to fetch tool summary.');
+    }
+  }
+
 }
 
 export default ToolService;

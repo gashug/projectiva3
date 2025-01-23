@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({ 
-    baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:5002/api', // Default to localhost if not set
+    baseURL: process.env.REACT_APP_API_BASE_URL, 
   });
 
   // You can add interceptors here for things like adding authentication headers

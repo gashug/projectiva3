@@ -1,0 +1,60 @@
+/* .resource-management {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resource-management-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .resource-management p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .resource-management ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .resource-management li {
+    margin-bottom: 0.5rem;
+  } */
+
+  .resource-management {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #e9ecef; /* Light gray border */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .widget-title {
+    font-size: 1.6rem; /* Slightly larger title */
+    color: #333; /* Dark gray color */
+    margin-bottom: 15px;
+  }
+  
+  .resource-management-content p {
+    font-size: 1rem;
+    color: #555; /* Medium gray color */
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .resource-management-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .resource-management-content li {
+    font-size: 0.9rem;
+    color: #555; /* Medium gray color */
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

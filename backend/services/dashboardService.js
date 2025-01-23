@@ -226,45 +226,298 @@
 
 // export default DashboardService;
 
-import ProjectService from './projectsService.js';
-import TaskService from './taskService.js';
-import AnalyticsService from './analyticsService.js';
-// ... import other services as needed (e.g., TechnicianService, if you have it)
+// import ProjectService from './projectsService.js';
+// import TaskService from './taskService.js';
+// import AnalyticsService from './analyticsService.js';
+// // ... import other services as needed (e.g., TechnicianService, if you have it)
+
+// class DashboardService {
+//   static async getAdminDashboardData() {
+//     try {
+//       // Fetch data for Admin/Project Manager dashboard
+//       console.log("Fetching dashboard data for admin...");
+
+//       const projectOverview = await AnalyticsService.getDashboardData(); // Using analytics view
+//       console.log("Project overview:", projectOverview);
+
+//       const priorityProjects = await ProjectService.getAllProjects(); // Fetch all projects or filter as needed
+//       console.log("Priority projects:", priorityProjects);
+
+//       const taskSummary = await TaskService.getAllTasks(); // Fetch all tasks or filter as needed
+//       console.log("Task summary:", taskSummary);
+
+//       const overdueTasks = taskSummary.filter(
+//         (task) =>
+//           task.status !== "Completed" && new Date(task.due_date) < new Date()
+//       );
+//       console.log("Overdue tasks:", overdueTasks);
+
+//       const upcomingDeadlines = priorityProjects
+//         .map((project) => ({
+//           name: project.name,
+//           end_date: project.end_date,
+//           type: "project",
+//         }))
+//         .filter(
+//           (project) =>
+//             project.end_date && new Date(project.end_date) >= new Date()
+//         )
+//         .sort((a, b) => new Date(a.end_date) - new Date(b.end_date))
+//         .slice(0, 5); // Get top 5 projects with upcoming deadlines
+//       console.log("Upcoming deadlines:", upcomingDeadlines);
+
+//       const notifications = []; // Fetch notifications or define static ones
+//       const quickActions = [
+//         { label: "Create New Project", action: "/projects/create" },
+//         { label: "Assign Task", action: "/tasks/assign" },
+//         { label: "Upload Document", action: "/documents/upload" },
+//       ];
+
+//       return {
+//         projectOverview,
+//         priorityProjects,
+//         taskSummary: {
+//           allTasks: taskSummary,
+//           overdueTasks: overdueTasks,
+//         },
+//         upcomingDeadlines,
+//         notifications,
+//         quickActions,
+//       };
+//     } catch (error) {
+//       console.error("Error fetching admin dashboard data:", error);
+//       throw new Error("Failed to fetch admin dashboard data.");
+//     }
+//   }
+
+//   static async getTechnicianDashboardData() {
+//     try {
+//       // Fetch data for Technician dashboard
+//       console.log("Fetching dashboard data for technician...");
+
+//       // Example: Fetch tasks assigned to a specific technician (replace with your actual logic)
+//       const assignedTasks = await TaskService.getAllTasks();
+
+//       // Example: Fetch tools checked out by the technician (replace with your actual logic)
+//       const checkedOutTools = []; // Fetch from your ToolService or relevant service
+
+//       // Add more technician-specific data fetching here
+
+//       return {
+//         assignedTasks,
+//         checkedOutTools,
+//         // ... other technician-specific data
+//       };
+//     } catch (error) {
+//       console.error("Error fetching technician dashboard data:", error);
+//       throw new Error("Failed to fetch technician dashboard data.");
+//     }
+//   }
+
+//   static async getDashboardData() {
+//     try {
+//       // Since we've removed authentication for now, you can decide:
+//       // 1. To show the admin dashboard to all users.
+//       // 2. To create a generic dashboard that doesn't depend on user roles.
+
+//       // For now, let's assume you want to show the admin dashboard (option 1):
+//       console.log("Fetching dashboard data (no authentication)...");
+//       const dashboardData = await this.getAdminDashboardData(); // Fetch admin dashboard data
+//       // If you had a generic, role-agnostic dashboard, you would fetch that data here
+
+//       console.log("Dashboard data fetched successfully.");
+//       return { ...dashboardData }; // You don't need userId or clerkUserId anymore
+//     } catch (error) {
+//       console.error("Error fetching dashboard data:", error);
+//       throw new Error("Failed to fetch dashboard data.");
+//     }
+//   }
+// }
+
+// export default DashboardService;
+
+// import ProjectService from './projectsService.js';
+// import TaskService from './taskService.js';
+// import AnalyticsService from './analyticsService.js';
+
+// class DashboardService {
+//     static async getAdminDashboardData() {
+//         try {
+//             // Fetch data for Admin/Project Manager dashboard
+//             console.log("Fetching dashboard data for admin...");
+
+//             const projectOverview = await AnalyticsService.getDashboardData(); // Using analytics view
+//             console.log("Project overview:", projectOverview);
+
+//             const priorityProjects = await ProjectService.getAllProjects(); // Fetch all projects or filter as needed
+//             console.log("Priority projects:", priorityProjects);
+
+//             const taskSummary = await TaskService.getAllTasks(); // Fetch all tasks or filter as needed
+//             console.log("Task summary:", taskSummary);
+
+//             const overdueTasks = taskSummary.filter(
+//                 (task) =>
+//                     task.status !== "Completed" && new Date(task.due_date) < new Date()
+//             );
+//             console.log("Overdue tasks:", overdueTasks);
+
+//             const upcomingDeadlines = priorityProjects
+//                 .map((project) => ({
+//                     name: project.name,
+//                     end_date: project.end_date,
+//                     type: "project",
+//                 }))
+//                 .filter(
+//                     (project) =>
+//                         project.end_date && new Date(project.end_date) >= new Date()
+//                 )
+//                 .sort((a, b) => new Date(a.end_date) - new Date(b.end_date))
+//                 .slice(0, 5); // Get top 5 projects with upcoming deadlines
+//             console.log("Upcoming deadlines:", upcomingDeadlines);
+
+//             const notifications = []; // Fetch notifications or define static ones
+//             const quickActions = [
+//                 { label: "Create New Project", action: "/projects/create" },
+//                 { label: "Assign Task", action: "/tasks/assign" },
+//                 { label: "Upload Document", action: "/documents/upload" },
+//             ];
+
+//             return {
+//                 projectOverview,
+//                 priorityProjects,
+//                 taskSummary: {
+//                     allTasks: taskSummary,
+//                     overdueTasks: overdueTasks,
+//                 },
+//                 upcomingDeadlines,
+//                 notifications,
+//                 quickActions,
+//             };
+//         } catch (error) {
+//             console.error("Error fetching admin dashboard data:", error);
+//             throw new Error("Failed to fetch admin dashboard data.");
+//         }
+//     }
+
+//     static async getTechnicianDashboardData() {
+//         try {
+//             // Fetch data for Technician dashboard
+//             console.log("Fetching dashboard data for technician...");
+
+//             // Example: Fetch tasks assigned to a specific technician (replace with your actual logic)
+//             const assignedTasks = await TaskService.getAllTasks();
+
+//             // Example: Fetch tools checked out by the technician (replace with your actual logic)
+//             const checkedOutTools = []; // Fetch from your ToolService or relevant service
+
+//             // Add more technician-specific data fetching here
+
+//             return {
+//                 assignedTasks,
+//                 checkedOutTools,
+//                 // ... other technician-specific data
+//             };
+//         } catch (error) {
+//             console.error("Error fetching technician dashboard data:", error);
+//             throw new Error("Failed to fetch technician dashboard data.");
+//         }
+//     }
+
+//     static async getDashboardData() {
+//         try {
+//             // For now, let's assume you want to show the admin dashboard (option 1):
+//             console.log("Fetching dashboard data (no authentication)...");
+//             const dashboardData = await this.getAdminDashboardData(); // Fetch admin dashboard data
+//             // If you had a generic, role-agnostic dashboard, you would fetch that data here
+
+//             console.log("Dashboard data fetched successfully.");
+//             return { ...dashboardData };
+//         } catch (error) {
+//             console.error("Error fetching dashboard data:", error);
+//             throw new Error("Failed to fetch dashboard data.");
+//         }
+//     }
+// }
+
+// export default DashboardService;
+
+import ProjectService from "./projectsService.js";
+import TaskService from "./taskService.js";
+import AnalyticsService from "./analyticsService.js";
+import TechnicianService from "./technicianService.js";
+import EquipmentService from "./equipmentService.js";
+import ToolService from "./toolsService.js";
 
 class DashboardService {
   static async getAdminDashboardData() {
     try {
-      // Fetch data for Admin/Project Manager dashboard
       console.log("Fetching dashboard data for admin...");
 
-      const projectOverview = await AnalyticsService.getDashboardData(); // Using analytics view
+      // Project Overview
+      const projectOverview = await AnalyticsService.getDashboardData();
       console.log("Project overview:", projectOverview);
 
-      const priorityProjects = await ProjectService.getAllProjects(); // Fetch all projects or filter as needed
+      // Priority Projects (Example: Fetch top 5 projects with closest end_dates)
+      const allProjects = await ProjectService.getAllProjects();
+      const priorityProjects = allProjects
+        .filter(
+          (project) =>
+            project.status !== "Completed" &&
+            project.end_date &&
+            new Date(project.end_date) >= new Date()
+        )
+        .sort((a, b) => new Date(a.end_date) - new Date(b.end_date))
+        .slice(0, 5);
       console.log("Priority projects:", priorityProjects);
 
-      const taskSummary = await TaskService.getAllTasks(); // Fetch all tasks or filter as needed
-      console.log("Task summary:", taskSummary);
-
-      const overdueTasks = taskSummary.filter(
+      // Task Summary
+      const allTasks = await TaskService.getAllTasks();
+      const overdueTasks = allTasks.filter(
         (task) =>
           task.status !== "Completed" && new Date(task.due_date) < new Date()
       );
-      console.log("Overdue tasks:", overdueTasks);
+      console.log("Task summary:", { allTasks, overdueTasks });
 
-      const upcomingDeadlines = priorityProjects
-        .map((project) => ({
+      // Upcoming Deadlines (Example: Fetch projects and tasks with upcoming due dates)
+      const upcomingDeadlines = [
+        ...priorityProjects.map((project) => ({
           name: project.name,
-          end_date: project.end_date,
-          type: "project",
-        }))
-        .filter(
-          (project) =>
-            project.end_date && new Date(project.end_date) >= new Date()
-        )
-        .sort((a, b) => new Date(a.end_date) - new Date(b.end_date))
-        .slice(0, 5); // Get top 5 projects with upcoming deadlines
+          type: "Project",
+          due_date: project.end_date,
+        })),
+        ...allTasks
+          .filter(
+            (task) =>
+              task.status !== "Completed" &&
+              task.due_date &&
+              new Date(task.due_date) >= new Date()
+          )
+          .map((task) => ({
+            name: task.name,
+            type: "Task",
+            due_date: task.due_date,
+          })),
+      ]
+        .sort((a, b) => new Date(a.due_date) - new Date(b.due_date))
+        .slice(0, 5); // Get top 5 upcoming deadlines
       console.log("Upcoming deadlines:", upcomingDeadlines);
+
+      // Resource Management
+      const technicianSummary = await TechnicianService.getTechnicianSummary();
+      const equipmentSummary = await EquipmentService.getEquipmentSummary();
+      const toolSummary = await ToolService.getToolSummary(); 
+
+      // Access lowStockItems directly from equipmentSummary
+      const lowStockItems = equipmentSummary.equipmentDetails.filter(
+        (item) => item.quantity < 5
+      ).length; // Now correctly counts low stock items
+
+      console.log("Resource Management:", {
+        technicianSummary,
+        equipmentSummary,
+        toolSummary,
+        lowStockItems,
+      });
 
       const notifications = []; // Fetch notifications or define static ones
       const quickActions = [
@@ -277,10 +530,16 @@ class DashboardService {
         projectOverview,
         priorityProjects,
         taskSummary: {
-          allTasks: taskSummary,
-          overdueTasks: overdueTasks,
+          allTasks,
+          overdueTasks,
         },
         upcomingDeadlines,
+        resourceManagement: {
+            technicianSummary,
+            equipmentSummary,
+            toolSummary,
+            lowStockItems: lowStockItems,
+          },
         notifications,
         quickActions,
       };
@@ -290,43 +549,16 @@ class DashboardService {
     }
   }
 
-  static async getTechnicianDashboardData() {
-    try {
-      // Fetch data for Technician dashboard
-      console.log("Fetching dashboard data for technician...");
-
-      // Example: Fetch tasks assigned to a specific technician (replace with your actual logic)
-      const assignedTasks = await TaskService.getAllTasks();
-
-      // Example: Fetch tools checked out by the technician (replace with your actual logic)
-      const checkedOutTools = []; // Fetch from your ToolService or relevant service
-
-      // Add more technician-specific data fetching here
-
-      return {
-        assignedTasks,
-        checkedOutTools,
-        // ... other technician-specific data
-      };
-    } catch (error) {
-      console.error("Error fetching technician dashboard data:", error);
-      throw new Error("Failed to fetch technician dashboard data.");
-    }
-  }
+  // ... other methods (getTechnicianDashboardData, etc.)
 
   static async getDashboardData() {
     try {
-      // Since we've removed authentication for now, you can decide:
-      // 1. To show the admin dashboard to all users.
-      // 2. To create a generic dashboard that doesn't depend on user roles.
-
-      // For now, let's assume you want to show the admin dashboard (option 1):
+      // For now, you're only fetching the admin dashboard data
       console.log("Fetching dashboard data (no authentication)...");
-      const dashboardData = await this.getAdminDashboardData(); // Fetch admin dashboard data
-      // If you had a generic, role-agnostic dashboard, you would fetch that data here
+      const dashboardData = await this.getAdminDashboardData();
 
       console.log("Dashboard data fetched successfully.");
-      return { ...dashboardData }; // You don't need userId or clerkUserId anymore
+      return { ...dashboardData };
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
       throw new Error("Failed to fetch dashboard data.");

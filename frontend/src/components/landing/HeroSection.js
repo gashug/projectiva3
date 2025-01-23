@@ -1,5 +1,6 @@
 import React from "react";
 import "./HeroSection.css";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
     return (
@@ -9,7 +10,9 @@ function HeroSection() {
                 <p className="hero-subtitle">
                     Manage projects, track tasks, and collaborate effortlessly, all in one place.
                 </p>
-                <button className="hero-cta">Get Started</button>
+                <Link to="/dashboard"> 
+                    <button className="hero-cta">Get Started</button>
+                </Link>
             </div>
         </section>
     );

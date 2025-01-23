@@ -1,0 +1,69 @@
+/* .quick-actions {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quick-actions-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .quick-actions-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .quick-actions-content button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .quick-actions-content button:hover {
+    background-color: #0b5ed7;
+  } */
+
+  .quick-actions {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #e9ecef; /* Light gray border */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .widget-title {
+    font-size: 1.6rem; /* Slightly larger title */
+    color: #333; /* Dark gray color */
+    margin-bottom: 15px;
+  }
+  
+  .quick-actions-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .quick-action-button {
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .quick-action-button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+  }

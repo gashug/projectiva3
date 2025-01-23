@@ -1,0 +1,80 @@
+/* .upcoming-deadlines {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upcoming-deadlines-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .deadlines-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .deadline-item {
+    margin-bottom: 0.5rem;
+  }
+  
+  .deadline-name {
+    font-weight: bold;
+  }
+  
+  .deadline-date {
+    font-size: 0.9rem;
+    color: #777;
+  } */
+
+  .upcoming-deadlines {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #e9ecef; /* Light gray border */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .widget-title {
+    font-size: 1.6rem; /* Slightly larger title */
+    color: #333; /* Dark gray color */
+    margin-bottom: 15px;
+  }
+  
+  .deadlines-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .deadline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef; /* Light gray border between items */
+  }
+  
+  .deadline-item:last-child {
+    border-bottom: none; /* No border on the last item */
+  }
+  
+  .deadline-name {
+    font-size: 1rem;
+    color: #555; /* Medium gray color */
+    font-weight: 600;
+  }
+  
+  .deadline-date {
+    font-size: 0.9rem;
+    color: #777; /* Lighter gray color */
+  }
+
+  .sort-container {
+    margin-bottom: 10px;
+  }
+  
+  .sort-container label {
+    margin-right: 5px;
+  }

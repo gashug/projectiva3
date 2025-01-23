@@ -1,0 +1,15 @@
+/* src/components/dashboard/WelcomeBanner.css */
+
+.welcome-banner {
+    background-color: #e9ecef; /* Light gray background */
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Add some space below the banner */
+    text-align: center; /* Center the text */
+  }
+  
+  .welcome-banner h2 {
+    font-size: 1.4rem;
+    color: #333; /* Dark gray text */
+    margin: 0; /* Remove default margin */
+  }

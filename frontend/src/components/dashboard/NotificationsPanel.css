@@ -1,0 +1,71 @@
+/* .notifications-panel { */
+    /* background-color: #f8f9fa; Light gray background */
+    /* border: 1px solid #e9ecef; Light gray border */
+    /* padding: 20px; */
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Subtle shadow */
+  /* } */
+  
+  /* .widget-title { */
+    /* font-size: 1.6rem; Slightly larger title */
+    /* color: #333; Dark gray color
+    margin-bottom: 15px;
+  }
+  
+  .notifications-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .notification-item {
+    background-color: #fff; White background for each notification
+    border: 1px solid #e9ecef; Light gray border
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); Very subtle shadow for depth
+    font-size: 0.9rem;
+    color: #555; Medium gray color
+  }
+  
+  .notifications-list p {
+    text-align: center;
+    font-size: 1rem;
+    color: #777; Lighter gray for no notifications message
+  } */
+
+  .notifications-panel {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #e9ecef; /* Light gray border */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .widget-title {
+    font-size: 1.6rem; /* Slightly larger title */
+    color: #333; /* Dark gray color */
+    margin-bottom: 15px;
+  }
+  
+  .notifications-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .notification-item {
+    background-color: #fff; /* White background for each notification */
+    border: 1px solid #e9ecef; /* Light gray border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Very subtle shadow for depth */
+    font-size: 0.9rem;
+    color: #555; /* Medium gray color */
+  }
+  
+  .notifications-list p {
+    text-align: center;
+    font-size: 1rem;
+    color: #777; /* Lighter gray for no notifications message */
+  }

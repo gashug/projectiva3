@@ -63,6 +63,23 @@ class EquipmentService {
       throw new Error('Failed to delete equipment.');
     }
   }
+
+  static async getEquipmentSummary() {
+    try {
+      const allEquipment = await Equipment.findAll();
+
+      return {
+        totalEquipment: allEquipment.length,
+        availableEquipment: allEquipment.filter((eq) => eq.assigned_to_project === null).length, // Example: Check if not assigned
+        assignedEquipment: allEquipment.filter((eq) => eq.assigned_to_project !== null).length,
+        lowStockItems: allEquipment.filter((eq) => eq.quantity < 5).length, // Example threshold
+        equipmentDetails: allEquipment, // You might want to refine this to include only necessary data
+      };
+    } catch (error) {
+      console.error('Error fetching equipment summary:', error);
+      throw new Error('Failed to fetch equipment summary.');
+    }
+  }
 }
 
 export default EquipmentService;

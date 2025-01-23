@@ -1,0 +1,162 @@
+/* .project-overview {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-overview h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  } */
+
+  /* .project-overview { */
+    /* Use the .widget class styles as a base */
+  /* } */
+  
+  /* .project-overview h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-overview p {
+    margin: 5px 0;
+  } */
+
+  /* src/components/dashboard/ProjectOverview.css */
+
+/* .project-overview { */
+    /* Use the .widget class styles as a base */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-overview h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-overview p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  .project-overview-content {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .project-overview-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .project-overview-label {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .project-overview-value {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+    }
+    
+    .circle-progress {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    } */
+    
+    /* .circle-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      clip: rect(0, 60px, 60px, 30px); Adjust for half circle
+    } */
+    
+    /* .circle-progress-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      clip: rect(0, 30px, 60px, 0); /* Adjust for half circle */
+      /* transform: rotate(60deg); Adjust rotation based on percentage */
+    /* } */
+    
+    /* .circle-progress-value {
+      font-size: 1rem;
+      color: var(--primary-color);
+      z-index: 2;
+    } */
+
+    .project-overview {
+        background-color: #f8f9fa; /* Light gray background */
+        border: 1px solid #e9ecef; /* Light gray border */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+      
+      .project-overview .widget-title {
+        font-size: 1.6rem; /* Slightly larger title */
+        color: #333; /* Dark gray color */
+        margin-bottom: 15px;
+      }
+      
+      .project-overview p {
+        font-size: 1rem;
+        color: #555; /* Medium gray color */
+        margin-bottom: 10px;
+      }
+      
+      .project-overview strong {
+        font-weight: 600;
+      }
+      
+      /* Example for a placeholder chart area */
+      .project-overview .chart-placeholder {
+        height: 200px;
+        background-color: #e9ecef; /* Light gray background for placeholder */
+        border: 1px dashed #ced4da; /* Dashed border for placeholder */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .chart-placeholder {
+        height: 250px;
+        background-color: #f5f5f5; /* Light gray background */
+        border: 1px dashed #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+
+.chart-container {
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    margin-bottom: 20px;
+  }

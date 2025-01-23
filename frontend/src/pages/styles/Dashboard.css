@@ -1,0 +1,447 @@
+/* .dashboard { */
+    /* font-family: 'Roboto', sans-serif; Or your preferred font */
+    /* background-color: #f2f2f2; Light gray background */
+    /* min-height: 100vh; */
+    /* display: flex; Use flexbox for main layout */
+  /* } */
+  
+  /* .dashboard-title {
+    display: none;
+  } */
+  
+  /* .dashboard-content { */
+    /* flex-grow: 1; Allow content area to take available space */
+    /* padding: 20px; */
+  /* } */
+  
+  /* .dashboard-widgets { */
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); Responsive grid */
+    /* gap: 20px; */
+  /* } */
+  
+  /* Widget Container Styles */
+  /* .widget {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .widget-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;.dashboard { */
+        /* font-family: 'Roboto', sans-serif; Or your preferred font */
+        /* background-color: #f2f2f2; Light gray background */
+        /* min-height: 100vh; */
+        /* display: flex; Use flexbox for main layout */
+      /* } */
+      
+      /* .dashboard-title {
+        display: none;
+      } */
+      
+      /* .dashboard-content { */
+        /* flex-grow: 1; Allow content area to take available space */
+        /* padding: 20px; */
+      /* } */
+      
+      /* .dashboard-widgets { */
+        /* display: grid; */
+        /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); Responsive grid */
+        /* gap: 20px; */
+      /* } */
+      
+      /* Widget Container Styles */
+      /* .widget {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      
+      .widget-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 15px; */
+        /* color: #343a40; Dark gray color */
+      /* } */
+    /* color: #343a40; Dark gray color */
+  /* } */
+
+  /* src/pages/Dashboard.css */
+
+/* .dashboard {
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa; Light gray background
+    min-height: 100vh; Ensure it takes up full viewport height
+    display: flex; Use flexbox for the two-column layout
+    gap: 20px;
+    padding: 20px;
+  }
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #343a40; Dark gray color
+}
+  
+.sidebar {
+    width: 200px; Fixed width for the sidebar
+    background-color: #e9ecef; Slightly darker than the main background
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.sidebar-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #f0f0f0;
+}
+  
+.main-content {
+    flex-grow: 1; Allow the main content area to grow
+    padding: 20px;
+}
+  
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); Responsive grid
+    gap: 20px;
+}
+  
+Widget Container Styles
+.widget {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+  
+.widget-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #343a40;
+    text-align: center;
+}
+
+Media query for smaller screens
+@media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column; Stack sidebar and main content vertically
+    }
+  
+    .sidebar {
+      width: 100%; Sidebar takes full width
+      margin-bottom: 20px;
+    }
+  
+    .dashboard-widgets {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); Adjust grid for smaller screens
+    }
+} */
+
+
+/* Dashboard.css */
+/* .dashboard {
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    gap: 20px;
+    padding: 20px;
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #343a40;
+}
+
+.sidebar {
+    width: 200px;
+    flex-shrink: 0; Prevent sidebar from shrinking
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out; Add transition for smooth opening/closing
+}
+
+.sidebar.open {
+    width: 200px; Or whatever width you want when it's open
+}
+
+.sidebar-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #f0f0f0;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+Widget Container Styles
+.widget {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.widget-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #343a40;
+    text-align: center;
+}
+
+Media query for smaller screens
+@media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column; Stack sidebar and main content vertically
+    }
+  
+    .sidebar {
+      width: 100%; Sidebar takes full width
+      margin-bottom: 20px;
+    }
+  
+    .dashboard-widgets {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); Adjust grid for smaller screens
+    }
+} */
+
+/* src/pages/Dashboard.css */
+
+/* .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .dashboard {
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #343a40;
+  } */
+  
+  /* .sidebar {
+    width: 200px; 
+    flex-shrink: 0;
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar.open {
+    width: 0;
+  }
+  
+  .sidebar-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  } */
+  
+  /* Widget Container Styles */
+  /* .widget {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .widget-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #343a40;
+    text-align: center;
+  } */
+  
+  /* Media query for smaller screens */
+  /* @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column; Stack sidebar and main content vertically
+    }
+  
+    .sidebar {
+      width: 100%; Sidebar takes full width
+      margin-bottom: 20px;
+    }
+  
+    .dashboard-widgets {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); Adjust grid for smaller screens
+    }
+  } */
+
+  /* src/pages/Dashboard.css */
+
+/* src/pages/Dashboard.css */
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #343a40;
+  }
+  
+  .sidebar {
+    width: 200px; /* Initial width when open */
+    flex-shrink: 0;
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out; /* Add transition for smooth opening/closing */
+  }
+  
+  .sidebar.open {
+    width: 20px; /* Width when sidebar is closed (icon-only mode) */
+  }
+  
+  .sidebar-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start */
+    gap: 10px; /* Space between icon and text */
+  }
+  
+  .sidebar-icon {
+    font-size: 1.2rem;
+    color: #333; /* Adjust as needed */
+  }
+  
+  /* Hide text when sidebar is collapsed (not open) */
+  /* .sidebar:not(.open) .sidebar-item span {
+    display: none;
+  } */
+  
+  .sidebar-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Widget Container Styles */
+  .widget {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .widget-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #343a40;
+    text-align: center;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column; /* Stack sidebar and main content vertically */
+    }
+  
+    .sidebar {
+      width: 100%; /* Sidebar takes full width */
+      margin-bottom: 20px;
+    }
+  
+    .sidebar.open {
+      width: 100%; /* Adjust if needed for your design */
+    }
+  
+    .dashboard-widgets {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for smaller screens */
+    }
+  }
