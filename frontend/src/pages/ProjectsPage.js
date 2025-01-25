@@ -537,6 +537,86 @@
 
 // export default ProjectsPage;
 
+// import React, { useState, useEffect } from "react";
+// import Filters from "../components/projects/ProjectsFilters";
+// import ProjectCard from "../components/projects/ProjectsCard";
+// import API from "../api/index.js";
+// import "../styles/ProjectsPage.css";
+
+// function ProjectsPage({ setPageTitle }) {
+//   const [projects, setProjects] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [statusFilter, setStatusFilter] = useState("");
+//   const [departmentFilter, setDepartmentFilter] = useState("");
+//   const [projectTypeFilter, setProjectTypeFilter] = useState("");
+
+//   useEffect(() => {
+//     setPageTitle("Projects");
+//     const fetchProjects = async () => {
+//       try {
+//         const response = await API.get("/api/projects");
+//         setProjects(response.data);
+//       } catch (error) {
+//         console.error("Error fetching projects:", error);
+//         setError("Failed to load projects.");
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchProjects();
+//   }, [setPageTitle]);
+
+//   // Add filtering logic here
+//   const filteredProjects = projects.filter((project) => {
+//     return (
+//       (!statusFilter || project.status === statusFilter) &&
+//       (!departmentFilter || project.department === departmentFilter) &&
+//       (!projectTypeFilter || project.type === projectTypeFilter)
+//     );
+//   });
+
+//   return (
+//     <div className="projects-container">
+//       <div className="projects-page">
+//         <main className="content">
+//           <div className="page-content">
+//             <section className="filters-section">
+//               <Filters
+//                 statusFilter={statusFilter}
+//                 setStatusFilter={setStatusFilter}
+//                 departmentFilter={departmentFilter}
+//                 setDepartmentFilter={setDepartmentFilter}
+//                 projectTypeFilter={projectTypeFilter}
+//                 setProjectTypeFilter={setProjectTypeFilter}
+//               />
+//             </section>
+
+//             <section className="project-cards-section">
+//               <div className="projects-content">
+//                 {loading ? (
+//                   <div>Loading projects...</div>
+//                 ) : error ? (
+//                   <div>Error: {error}</div>
+//                 ) : (
+//                   <div className="project-cards">
+//                     {filteredProjects.map((project) => (
+//                       <ProjectCard key={project.id} project={project} />
+//                     ))}
+//                   </div>
+//                 )}
+//               </div>
+//             </section>
+//           </div>
+//         </main>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ProjectsPage;
+
 import React, { useState, useEffect } from "react";
 import Filters from "../components/projects/ProjectsFilters";
 import ProjectCard from "../components/projects/ProjectsCard";
@@ -547,6 +627,7 @@ function ProjectsPage({ setPageTitle }) {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [departmentFilter, setDepartmentFilter] = useState("");
   const [projectTypeFilter, setProjectTypeFilter] = useState("");
@@ -570,7 +651,11 @@ function ProjectsPage({ setPageTitle }) {
 
   // Add filtering logic here
   const filteredProjects = projects.filter((project) => {
+    const matchesSearchQuery = project.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     return (
+      matchesSearchQuery &&
       (!statusFilter || project.status === statusFilter) &&
       (!departmentFilter || project.department === departmentFilter) &&
       (!projectTypeFilter || project.type === projectTypeFilter)
@@ -580,19 +665,20 @@ function ProjectsPage({ setPageTitle }) {
   return (
     <div className="projects-container">
       <div className="projects-page">
+        <section className="filters-and-search">
+          <Filters
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            statusFilter={statusFilter}
+            setStatusFilter={setStatusFilter}
+            departmentFilter={departmentFilter}
+            setDepartmentFilter={setDepartmentFilter}
+            projectTypeFilter={projectTypeFilter}
+            setProjectTypeFilter={setProjectTypeFilter}
+          />
+        </section>
         <main className="content">
           <div className="page-content">
-            <section className="filters-section">
-              <Filters
-                statusFilter={statusFilter}
-                setStatusFilter={setStatusFilter}
-                departmentFilter={departmentFilter}
-                setDepartmentFilter={setDepartmentFilter}
-                projectTypeFilter={projectTypeFilter}
-                setProjectTypeFilter={setProjectTypeFilter}
-              />
-            </section>
-
             <section className="project-cards-section">
               <div className="projects-content">
                 {loading ? (

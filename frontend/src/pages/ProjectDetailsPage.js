@@ -882,7 +882,6 @@ import TaskManagement from "../components/projects/TaskManagement";
 import DocumentUpload from "../components/projects/DocumentUpload";
 import ActivityLog from "../components/projects/ActivityLog";
 import CommentsSection from "../components/projects/CommentsSection";
-import TaskList from "../components/projects/TaskList.js";
 import "../styles/ProjectDetailsPage.css";
 
 function ProjectDetailsPage({ isSidebarOpen, setPageTitle, toggleSidebar }) {

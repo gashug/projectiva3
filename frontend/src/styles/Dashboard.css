@@ -529,44 +529,6 @@ Media query for smaller screens
   color: #343a40;
 }
 
-.sidebar {
-  width: 100px; /* Initial width when open */
-  flex-shrink: 0;
-  background-color: #e9ecef;
-  padding: 20px;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: width 0.3s ease-in-out; /* Add transition for smooth opening/closing */
-}
-
-.sidebar.open {
-  width: 60px; /* Width when sidebar is closed (icon-only mode) */
-}
-
-.sidebar-item {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Align items to the start */
-  gap: 10px; /* Space between icon and text */
-}
-
-.sidebar-icon {
-  font-size: 1.2rem;
-  color: #333; /* Adjust as needed */
-}
-
-/* Hide text when sidebar is collapsed (not open)
-.sidebar:not(.open) .sidebar-item span {
-  display: none;
-} */
-
-.sidebar-item:hover {
-  background-color: #f0f0f0;
-}
 
 .main-content {
   flex-grow: 1;

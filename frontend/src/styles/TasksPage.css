@@ -1,0 +1,96 @@
+.tasks-container {
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Changed to column */
+  }
+  
+  .tasks-page {
+    display: flex;
+    flex-direction: column; /* Changed to column */
+    flex-grow: 1;
+    width: 100%;
+  }
+  
+  .page-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .filters-section {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .filters-and-add-task-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 10;
+  }
+  
+  .tasks-content {
+    padding: 20px;
+  }
+  
+  .task-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 15px; /* Adjust gap as needed */
+  }
+  
+  .add-task-section {
+    padding: 20px;
+    text-align: center; /* Aligns the button to the center */
+  }
+  
+  .add-task-button {
+    background-color: #007bff; /* A blue color for primary actions */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px; /* Adds some space below the button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-task-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 1600px) {
+    .task-cards {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .task-cards {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .task-cards {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+    .filters-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .task-cards {
+      grid-template-columns: 1fr; /* 1 column */
+    }
+  }

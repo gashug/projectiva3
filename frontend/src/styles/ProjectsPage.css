@@ -90,115 +90,75 @@
     }
   } */
 
-/* src/styles/ProjectsPage.css */
-
-.projects-container {
-  font-family: "Roboto", sans-serif;
-  background-color: #f8f9fa;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* Stack header, content, footer vertically */
-}
-
-.projects-page {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  /* width: 100%; */
-}
-
-/* Main container for filters/search and project cards */
-.page-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column; /* Stack filters and projects vertically */
-}
-
-/* Filters and search section */
-.filters-and-search {
-  margin-bottom: 20px;
-  /* width: 100%; Take up full width */
-}
-
-.filters-section {
-  margin-bottom: 20px;
-}
-
-/* .project-cards-section {
+  .projects-container {
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Changed to column */
+  }
+  
+  .projects-page {
+    display: flex;
+    flex-direction: column; /* Changed to column */
+    flex-grow: 1;
     width: 100%;
-} */
-
-.project-cards {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Create 5 equal-width columns */
-  gap: 15px;
-}
-
-.sidebar {
-  width: 100px; /* Initial width when open */
-  flex-shrink: 0;
-  background-color: #e9ecef;
-  padding: 20px;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: width 0.3s ease-in-out; /* Add transition for smooth opening/closing */
-}
-
-.sidebar.open {
-  width: 60px; /* Width when sidebar is closed (icon-only mode) */
-}
-
-.sidebar-item {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Align items to the start */
-  gap: 10px; /* Space between icon and text */
-}
-
-.sidebar-icon {
-  font-size: 1.2rem;
-  color: #333; /* Adjust as needed */
-}
-
-/* Hide text when sidebar is collapsed (not open)
-.sidebar:not(.open) .sidebar-item span {
-  display: none;
-} */
-
-.sidebar-item:hover {
-  background-color: #f0f0f0;
-}
-
-/* Adjust grid for smaller screens */
-@media (max-width: 1500px) {
-  .project-cards {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
   }
-}
-
-@media (max-width: 1200px) {
-  .project-cards {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  
+  /* Main container for filters/search and project cards */
+  .page-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
   }
-}
-
-@media (max-width: 768px) {
-  .project-cards {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  
+  /* Filters and search section */
+  .filters-and-search {
+    width: 100%; /* Take up full width */
+    padding: 20px;
+    z-index: 10;
   }
-}
-
-@media (max-width: 480px) {
-  .project-cards {
-    grid-template-columns: 1fr; /* Single column on very small screens */
+  
+  .filters-section {
+    margin-bottom: 20px;
   }
-}
-
-.placeholder-card {
-  /* Add some minimal styling to make it visually distinct if needed */
-  visibility: hidden;
-}
+  
+  .project-cards-section {
+    width: 100%;
+  }
+  
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Create 5 equal-width columns */
+    gap: 15px;
+  }
+  
+  /* Adjust grid for smaller screens */
+  @media (max-width: 1500px) {
+    .project-cards {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .project-cards {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .project-cards {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .project-cards {
+      grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+  }
+  
+  .placeholder-card {
+    /* Add some minimal styling to make it visually distinct if needed */
+    visibility: hidden;
+  }

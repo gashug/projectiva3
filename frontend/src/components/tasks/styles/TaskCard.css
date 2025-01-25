@@ -1,0 +1,201 @@
+/* .task-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .task-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+  
+  .task-info {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+  }
+  
+  .task-assigned-to,
+  .task-due-date {
+    font-weight: 600;
+  }
+  
+  .task-status {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+  }
+  
+  .status-Pending {
+    color: #212529;
+    background-color: #ffc107;
+  }
+  
+  .status-In-Progress {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .status-Completed {
+    color: #fff;
+    background-color: #28a745;
+  }
+  
+  .status-Blocked {
+    color: #fff;
+    background-color: #dc3545;
+  }
+  
+  .task-priority {
+    font-weight: 600;
+  }
+  
+  .priority-low {
+    color: green;
+  }
+  
+  .priority-medium {
+    color: orange;
+  }
+  
+  .priority-high {
+    color: red;
+  }
+  
+  .task-actions {
+    margin-top: 10px;
+  }
+  
+  .edit-task, .delete-task {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-task:hover, .delete-task:hover {
+    background-color: #0056b3;
+  } */
+
+  .task-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .task-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+  
+  .task-info {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+  }
+  
+  .task-assigned-to,
+  .task-due-date {
+    font-weight: 600;
+  }
+  
+  .task-status {
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+  }
+  
+  .status-Pending {
+    color: #212529;
+    background-color: #ffc107;
+  }
+  
+  .status-In-Progress {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .status-Completed {
+    color: #fff;
+    background-color: #28a745;
+  }
+  
+  .status-Blocked {
+    color: #fff;
+    background-color: #dc3545;
+  }
+  
+  .task-priority {
+    font-weight: 600;
+  }
+  
+  .priority-low {
+    color: green;
+  }
+  
+  .priority-medium {
+    color: orange;
+  }
+  
+  .priority-high {
+    color: red;
+  }
+  
+  .task-actions {
+    margin-top: 10px;
+  }
+  
+  .edit-task,
+  .delete-task {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-task:hover,
+  .delete-task:hover {
+    background-color: #0056b3;
+  }
