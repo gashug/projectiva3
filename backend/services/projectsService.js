@@ -38,6 +38,7 @@ class ProjectService {
       const project = await Project.create(projectData);
       return project;
     } catch (error) {
+      console.error('Error creating project in service:', error);
       throw new Error('Failed to create project.');
     }
   }
@@ -52,6 +53,7 @@ class ProjectService {
       }
       return project;
     } catch (error) {
+      console.error("Error updating project in service:", error); // Add this line
       throw new Error('Failed to update project.');
     }
   }
@@ -67,6 +69,47 @@ class ProjectService {
       return true;
     } catch (error) {
       throw new Error('Failed to delete project.');
+    }
+  }
+
+  // Method to update project stages
+  static async updateProjectStages(projectId, stages) {
+    try {
+      const project = await Project.findById(projectId);
+      if (!project) {
+        throw new Error("Project not found.");
+      }
+
+      // Validate stages data
+      if (!Array.isArray(stages)) {
+        throw new Error("Stages must be an array.");
+      }
+
+      // Update the stages (you might need to adjust this logic)
+      project.stages = stages;
+
+      const updatedProject = await Project.update(projectId, project);
+      console.log("Updated project stages:", updatedProject.stages); // Log updated stages
+      return updatedProject;
+    } catch (error) {
+      console.error("Error updating project stages:", error);
+      throw new Error("Failed to update project stages.");
+    }
+  }
+
+  // Method to get project stages
+  static async getProjectStages(projectId) {
+    try {
+      const project = await Project.findById(projectId);
+      if (!project) {
+        throw new Error("Project not found.");
+      }
+
+      console.log("Fetched stages for project:", project.stages); // Log fetched stages
+      return project.stages || []; // Return stages or an empty array if not set
+    } catch (error) {
+      console.error("Error fetching project stages:", error);
+      throw new Error("Failed to fetch project stages.");
     }
   }
 }

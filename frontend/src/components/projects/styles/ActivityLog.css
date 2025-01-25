@@ -1,0 +1,38 @@
+/* src/components/projects/ActivityLog.css */
+
+.activity-log-section {
+    margin-bottom: 20px;
+  }
+  
+  .activity-log-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .activity-log-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .activity-log-item {
+    display: flex;
+    align-items: center; /* Align timestamp and message */
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .activity-log-item:last-child {
+    border-bottom: none; /* Remove border from the last item */
+  }
+  
+  .log-timestamp {
+    font-size: 0.8rem;
+    color: #777;
+    margin-right: 15px;
+    white-space: nowrap; /* Prevent timestamp from wrapping */
+  }
+  
+  .log-message {
+    font-size: 0.9rem;
+  }

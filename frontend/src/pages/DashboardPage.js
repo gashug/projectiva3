@@ -440,29 +440,335 @@
 
 // export default DashboardPage;
 
+// return (
+  //   <div className="dashboard-container">
+  //     <Navbar 
+  //     toggleSidebar={toggleSidebar} 
+  //     isSidebarOpen={isSidebarOpen}
+  //     />
+  //     <div className="dashboard">
+  //       <div className={`sidebar ${!isSidebarOpen ? "" : "open"}`}>
+  //         <Link to="/projects">
+  //           <div className="sidebar-item">
+  //             <FontAwesomeIcon icon={faProjectDiagram} className="sidebar-icon" />
+  //             {!isSidebarOpen && <a href="./ProjectsPage.js">Projects</a>}
+  //           </div>
+  //         </Link>
+  //         <div className="sidebar-item">
+  //           <FontAwesomeIcon icon={faTasks} className="sidebar-icon" />
+  //           {!isSidebarOpen && <span>Tasks</span>}
+  //         </div>
+  //         <div className="sidebar-item">
+  //           <FontAwesomeIcon icon={faChartBar} className="sidebar-icon" />
+  //           {!isSidebarOpen && <span>Analytics</span>}
+  //         </div>
+  //         <div className="sidebar-item">
+  //           <FontAwesomeIcon icon={faBoxes} className="sidebar-icon" />
+  //           {!isSidebarOpen && <span>Inventory</span>}
+  //         </div>
+  //       </div>
+  //       <div className="main-content">
+  //         <WelcomeBanner userName="User" />
+  //         <div className="dashboard-widgets">
+  //           <ProjectOverview data={dashboardData} />
+  //           <TaskSummary data={dashboardData} />
+  //           <UpcomingDeadlines data={dashboardData?.upcomingDeadlines} />
+  //           <AnalyticsSection data={dashboardData?.analytics} />
+  //           <ResourceManagement data={dashboardData} />
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
+
+// import React, { useState, useEffect } from "react";
+// import API from "../api/index.js";
+// import ProjectOverview from "../components/dashboard/ProjectOverview";
+// import TaskSummary from "../components/dashboard/TaskSummary";
+// import UpcomingDeadlines from "../components/dashboard/UpcomingDeadlines";
+// import AnalyticsSection from "../components/dashboard/AnalyticsSection";
+// import ResourceManagement from "../components/dashboard/ResourceManagement";
+// import Navbar from "../components/common/Navbar.js";
+// import WelcomeBanner from '../components/dashboard/WelcomeBanner';
+// import { Link } from 'react-router-dom';
+
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTasks, faProjectDiagram, faChartBar, faBoxes } from '@fortawesome/free-solid-svg-icons';
+// import "../styles/Dashboard.css";
+
+// function DashboardPage() {
+//   const [dashboardData, setDashboardData] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  
+//   // const [isIconMode, setIsIconMode] = useState(false);
+
+//   useEffect(() => {
+//     API.get("/api/dashboard")
+//       .then((response) => {
+//         setDashboardData(response.data);
+//         console.log("Dashboard Data:", response.data);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching dashboard data:", error);
+//         setError("Failed to load dashboard data.");
+//       })
+//       .finally(() => {
+//         setLoading(false);
+//       });
+//   }, []);
+
+//   const toggleSidebar = () => {
+//         setIsSidebarOpen(!isSidebarOpen);
+        
+//       };
+
+//   if (loading) {
+//     return <div className="loading">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="error">Error: {error}</div>;
+//   }
+
+  
+//   return (
+//     <div className="dashboard-container">
+//       <Navbar 
+//         toggleSidebar={toggleSidebar} 
+//         isSidebarOpen={isSidebarOpen}
+//         pageTitle="Dashboard"
+//       />
+//       <div className="page-content">
+//         <div className={`sidebar ${!isSidebarOpen ? "" : "open"}`}>
+//           {/* Use Link to wrap your sidebar items */}
+//           <Link to="/projects"> {/* Replace with your actual routes */}
+//             <div className="sidebar-item">
+//               <FontAwesomeIcon icon={faProjectDiagram} className="sidebar-icon" />
+//               {!isSidebarOpen && <span>Projects</span>}
+//             </div>
+//           </Link>
+//           <Link to="/tasks"> {/* Replace with your actual routes */}
+//             <div className="sidebar-item">
+//               <FontAwesomeIcon icon={faTasks} className="sidebar-icon" />
+//               {!isSidebarOpen && <span>Tasks</span>}
+//             </div>
+//           </Link>
+//           <Link to="/analytics"> {/* Replace with your actual routes */}
+//             <div className="sidebar-item">
+//               <FontAwesomeIcon icon={faChartBar} className="sidebar-icon" />
+//               {!isSidebarOpen && <span>Analytics</span>}
+//             </div>
+//           </Link>
+//           <Link to="/inventory"> {/* Replace with your actual routes */}
+//             <div className="sidebar-item">
+//               <FontAwesomeIcon icon={faBoxes} className="sidebar-icon" />
+//               {!isSidebarOpen && <span>Inventory</span>}
+//             </div>
+//           </Link>
+//         </div>
+//         <div className="main-content">
+//           <WelcomeBanner userName="User" />
+//           <div className="dashboard-widgets">
+//             <ProjectOverview data={dashboardData} />
+//             <TaskSummary data={dashboardData} />
+//             <UpcomingDeadlines data={dashboardData?.upcomingDeadlines} />
+//             <AnalyticsSection data={dashboardData?.analytics} />
+//             <ResourceManagement data={dashboardData} />
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default DashboardPage;
+
+// import React, { useState, useEffect } from "react";
+// import API from "../api/index.js";
+// import ProjectOverview from "../components/dashboard/ProjectOverview";
+// import TaskSummary from "../components/dashboard/TaskSummary";
+// import UpcomingDeadlines from "../components/dashboard/UpcomingDeadlines";
+// import AnalyticsSection from "../components/dashboard/AnalyticsSection";
+// import ResourceManagement from "../components/dashboard/ResourceManagement";
+// import Navbar from "../components/common/Navbar.js";
+// import WelcomeBanner from '../components/dashboard/WelcomeBanner';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTasks, faProjectDiagram, faChartBar, faBoxes } from '@fortawesome/free-solid-svg-icons';
+// import { Link } from 'react-router-dom';
+// import "../styles/Dashboard.css";
+
+// function DashboardPage({ isSidebarOpen, setPageTitle }) {
+//   const [dashboardData, setDashboardData] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+//   useEffect(() => {
+//     setPageTitle("Dashboard");
+//     API.get("/api/dashboard")
+//       .then((response) => {
+//         setDashboardData(response.data);
+//         console.log("Dashboard Data:", response.data);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching dashboard data:", error);
+//         setError("Failed to load dashboard data.");
+//       })
+//       .finally(() => {
+//         setLoading(false);
+//       });
+//   }, []);
+
+//   const toggleSidebar = () => {
+//     setIsSidebarOpen(!isSidebarOpen);
+//   };
+
+//   if (loading) {
+//     return <div className="loading">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="error">Error: {error}</div>;
+//   }
+
+//   return (
+//     <div className="dashboard-container">
+//       {/* <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} pageTitle="Dashboard" /> */}
+//       <div className="dashboard">
+//         <div className={`sidebar ${isSidebarOpen ? "" : "open"}`}>
+//           <Link to="/projects" className="sidebar-item">
+//             <FontAwesomeIcon icon={faProjectDiagram} className="sidebar-icon" />
+//             {isSidebarOpen && <span>Projects</span>}
+//           </Link>
+//           <Link to="/tasks" className="sidebar-item">
+//             <FontAwesomeIcon icon={faTasks} className="sidebar-icon" />
+//             {isSidebarOpen && <span>Tasks</span>}
+//           </Link>
+//           <Link to="/analytics" className="sidebar-item">
+//             <FontAwesomeIcon icon={faChartBar} className="sidebar-icon" />
+//             {isSidebarOpen && <span>Analytics</span>}
+//           </Link>
+//           <Link to="/inventory" className="sidebar-item">
+//             <FontAwesomeIcon icon={faBoxes} className="sidebar-icon" />
+//             {isSidebarOpen && <span>Inventory</span>}
+//           </Link>
+//         </div>
+//         <div className="main-content">
+//           <WelcomeBanner userName="User" />
+//           <div className="dashboard-widgets">
+//             <ProjectOverview data={dashboardData?.projectOverview} />
+//             <TaskSummary data={dashboardData?.taskSummary} />
+//             <UpcomingDeadlines data={dashboardData?.upcomingDeadlines} />
+//             <AnalyticsSection data={dashboardData?.analytics} />
+//             <ResourceManagement data={dashboardData?.resourceManagement} />
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default DashboardPage;
+
+// import React, { useState, useEffect } from "react";
+// import API from "../api/index.js";
+// import ProjectOverview from "../components/dashboard/ProjectOverview";
+// import TaskSummary from "../components/dashboard/TaskSummary";
+// import UpcomingDeadlines from "../components/dashboard/UpcomingDeadlines";
+// import AnalyticsSection from "../components/dashboard/AnalyticsSection";
+// import ResourceManagement from "../components/dashboard/ResourceManagement";
+// import WelcomeBanner from '../components/dashboard/WelcomeBanner';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTasks, faProjectDiagram, faChartBar, faBoxes } from '@fortawesome/free-solid-svg-icons';
+// import { Link } from 'react-router-dom';
+// import "../styles/Dashboard.css";
+
+// function DashboardPage({ isSidebarOpen, setPageTitle }) {
+//   const [dashboardData, setDashboardData] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     setPageTitle("Dashboard");
+//     API.get("/api/dashboard")
+//       .then((response) => {
+//         setDashboardData(response.data);
+//         console.log("Dashboard Data:", response.data);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching dashboard data:", error);
+//         setError("Failed to load dashboard data.");
+//       })
+//       .finally(() => {
+//         setLoading(false);
+//       });
+//   }, [setPageTitle]);
+
+//   if (loading) {
+//     return <div className="loading">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="error">Error: {error}</div>;
+//   }
+
+//   return (
+//     <div className="dashboard-container">
+//       <div className="dashboard">
+//         <div className={`sidebar ${!isSidebarOpen ? "open" : ""}`}>
+//           <Link to="/projects" className="sidebar-item">
+//             <FontAwesomeIcon icon={faProjectDiagram} className="sidebar-icon" />
+//             {!isSidebarOpen && <span>Projects</span>}
+//           </Link>
+//           <Link to="/tasks" className="sidebar-item">
+//             <FontAwesomeIcon icon={faTasks} className="sidebar-icon" />
+//             {!isSidebarOpen && <span>Tasks</span>}
+//           </Link>
+//           <Link to="/analytics" className="sidebar-item">
+//             <FontAwesomeIcon icon={faChartBar} className="sidebar-icon" />
+//             {!isSidebarOpen && <span>Analytics</span>}
+//           </Link>
+//           <Link to="/inventory" className="sidebar-item">
+//             <FontAwesomeIcon icon={faBoxes} className="sidebar-icon" />
+//             {!isSidebarOpen && <span>Inventory</span>}
+//           </Link>
+//         </div>
+//         <div className="main-content">
+//           <WelcomeBanner userName="User" />
+//           <div className="dashboard-widgets">
+//             <ProjectOverview data={dashboardData?.projectOverview} />
+//             <TaskSummary data={dashboardData?.taskSummary} />
+//             <UpcomingDeadlines data={dashboardData?.upcomingDeadlines} />
+//             <AnalyticsSection data={dashboardData?.analytics} />
+//             <ResourceManagement data={dashboardData?.resourceManagement} />
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default DashboardPage;
+
 import React, { useState, useEffect } from "react";
 import API from "../api/index.js";
-import ProjectOverview from "../components/dashboard/ProjectOverview";
+import ProjectOverview from "../components/dashboard/ProjectOverview.js";
 import TaskSummary from "../components/dashboard/TaskSummary";
 import UpcomingDeadlines from "../components/dashboard/UpcomingDeadlines";
 import AnalyticsSection from "../components/dashboard/AnalyticsSection";
 import ResourceManagement from "../components/dashboard/ResourceManagement";
-import Navbar from "../components/common/Navbar.js";
 import WelcomeBanner from '../components/dashboard/WelcomeBanner';
+import "../styles/Dashboard.css";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTasks, faProjectDiagram, faChartBar, faBoxes } from '@fortawesome/free-solid-svg-icons';
-import "./styles/Dashboard.css";
-
-function DashboardPage() {
+function DashboardPage({ isSidebarOpen, setPageTitle }) {
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  
-  // const [isIconMode, setIsIconMode] = useState(false);
 
   useEffect(() => {
+    setPageTitle("Dashboard");
     API.get("/api/dashboard")
       .then((response) => {
         setDashboardData(response.data);
@@ -475,12 +781,7 @@ function DashboardPage() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
-
-  const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-        
-      };
+  }, [setPageTitle]);
 
   if (loading) {
     return <div className="loading">Loading...</div>;
@@ -492,37 +793,15 @@ function DashboardPage() {
 
   return (
     <div className="dashboard-container">
-      <Navbar 
-      toggleSidebar={toggleSidebar} 
-      isSidebarOpen={isSidebarOpen}
-      />
       <div className="dashboard">
-        <div className={`sidebar ${!isSidebarOpen ? "" : "open"}`}>
-          <div className="sidebar-item">
-            <FontAwesomeIcon icon={faProjectDiagram} className="sidebar-icon" />
-            {!isSidebarOpen && <span>Projects</span>}
-          </div>
-          <div className="sidebar-item">
-            <FontAwesomeIcon icon={faTasks} className="sidebar-icon" />
-            {!isSidebarOpen && <span>Tasks</span>}
-          </div>
-          <div className="sidebar-item">
-            <FontAwesomeIcon icon={faChartBar} className="sidebar-icon" />
-            {!isSidebarOpen && <span>Analytics</span>}
-          </div>
-          <div className="sidebar-item">
-            <FontAwesomeIcon icon={faBoxes} className="sidebar-icon" />
-            {!isSidebarOpen && <span>Inventory</span>}
-          </div>
-        </div>
         <div className="main-content">
           <WelcomeBanner userName="User" />
           <div className="dashboard-widgets">
-            <ProjectOverview data={dashboardData} />
-            <TaskSummary data={dashboardData} />
+            <ProjectOverview data={dashboardData?.projectOverview} />
+            <TaskSummary data={dashboardData?.taskSummary} />
             <UpcomingDeadlines data={dashboardData?.upcomingDeadlines} />
             <AnalyticsSection data={dashboardData?.analytics} />
-            <ResourceManagement data={dashboardData} />
+            <ResourceManagement data={dashboardData?.resourceManagement} />
           </div>
         </div>
       </div>

@@ -626,23 +626,521 @@
 
 // export default Navbar;
 
+// import React, { useState, useEffect } from "react";
+// import "./Navbar.css";
+// import { Link, useNavigate } from 'react-router-dom';
+// import API from '../../api/index';
+// import UserMenu from "./UserMenu";
+
+// function Navbar({ toggleSidebar, isSidebarOpen }) {
+//   const [showQuickActions, setShowQuickActions] = useState(false);
+//   const [notifications, setNotifications] = useState([]);
+//   const [showNotificationsDropdown, setShowNotificationsDropdown] = useState(false);
+//   const [error, setError] = useState(null);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchNotifications = async () => {
+//       try {
+//         const response = await API.get('/api/notifications');
+//         setNotifications(response.data);
+//       } catch (error) {
+//         console.error("Error fetching notifications:", error);
+//         setError("Failed to load notifications.");
+//       }
+//     };
+
+//     fetchNotifications();
+//   }, []);
+
+//   const handleQuickActionsClick = () => {
+//     setShowQuickActions(!showQuickActions);
+//   };
+
+//   const handleNotificationsClick = () => {
+//     setShowNotificationsDropdown(!showNotificationsDropdown);
+//   };
+
+//   const handleCreateNewProject = () => {
+//     // Close the dropdown
+//     setShowQuickActions(false);
+//     // Navigate to the Create Project page
+//     navigate("/projects/create");
+//   };
+
+//   const handleAssignTask = () => {
+//     setShowQuickActions(false);
+//     navigate("/tasks/assign");
+//   };
+
+//   const handleUploadDocument = () => {
+//     setShowQuickActions(false);
+//     navigate("/documents/upload");
+//   };
+
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-left">
+//         <button className="sidebar-toggle" onClick={toggleSidebar}>
+//           {isSidebarOpen ? "\u2630" : "\u00d7"}
+//         </button>
+//         <h1 className="navbar-title">Dashboard</h1>
+//       </div>
+//       <div className="navbar-center">
+//         <input type="text" placeholder="Search..." className="search-bar" />
+//       </div>
+//       <div className="navbar-right">
+//         <div className="quick-actions">
+//           <button
+//             className="quick-actions-button"
+//             onClick={handleQuickActionsClick}
+//           >
+//             Quick Actions
+//           </button>
+//           {showQuickActions && (
+//             <ul className="quick-actions-dropdown">
+//               <li onClick={handleCreateNewProject}>
+//                 Create New Project
+//               </li>
+//               <li onClick={handleAssignTask}>
+//                 Assign Task
+//               </li>
+//               <li onClick={handleUploadDocument}>
+//                 Upload Document
+//               </li>
+//             </ul>
+//           )}
+//         </div>
+//         <button
+//           className="notifications-button"
+//           onClick={handleNotificationsClick}
+//         >
+//           🔔
+//         </button>
+//         {showNotificationsDropdown && (
+//           <div className="notifications-dropdown">
+//             {notifications.length > 0 ? (
+//               notifications.map((notification) => (
+//                 <p key={notification.id}>{notification.message}</p>
+//               ))
+//             ) : (
+//               <p>No new notifications</p>
+//             )}
+//           </div>
+//         )}
+//         <div className="user-menu">
+//           <UserMenu />
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default Navbar;
+
+// import React, { useState, useEffect } from "react";
+// import "./Navbar.css";
+// import { Link } from 'react-router-dom';
+// import API from '../../api/index';
+// import UserMenu from "./UserMenu";
+
+// function Navbar({ toggleSidebar, isSidebarOpen, pageTitle }) {
+//   const [showQuickActions, setShowQuickActions] = useState(false);
+//   const [notifications, setNotifications] = useState([]);
+//   const [showNotificationsDropdown, setShowNotificationsDropdown] = useState(false);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const fetchNotifications = async () => {
+//       try {
+//         const response = await API.get('/notifications');
+//         setNotifications(response.data);
+//       } catch (error) {
+//         console.error("Error fetching notifications:", error);
+//         setError("Failed to load notifications.");
+//       }
+//     };
+
+//     fetchNotifications();
+//   }, []);
+
+//   const handleQuickActionsClick = () => {
+//     setShowQuickActions(!showQuickActions);
+//   };
+
+//   const handleNotificationsClick = () => {
+//     setShowNotificationsDropdown(!showNotificationsDropdown);
+//   };
+
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-left">
+//         <button className="sidebar-toggle" onClick={toggleSidebar}>
+//           {isSidebarOpen ? "\u2630" : "\u00d7"}
+//         </button>
+//         <h1 className="page-title">{pageTitle}</h1>
+//       </div>
+//       <div className="navbar-center">
+//         <input type="text" placeholder="Search..." className="search-bar" />
+//       </div>
+//       <div className="navbar-right">
+//         <div className="quick-actions">
+//           <button
+//             className="quick-actions-button"
+//             onClick={handleQuickActionsClick}
+//           >
+//             Quick Actions
+//           </button>
+//           {showQuickActions && (
+//             <ul className="quick-actions-dropdown">
+//               <li>
+//                 <Link to="/projects/create">Create New Project</Link>
+//               </li>
+//               <li>
+//                 <Link to="/tasks/assign">Assign Task</Link>
+//               </li>
+//               <li>
+//                 <Link to="/documents/upload">Upload Document</Link>
+//               </li>
+//             </ul>
+//           )}
+//         </div>
+//         <button
+//           className="notifications-button"
+//           onClick={handleNotificationsClick}
+//         >
+//           🔔
+//         </button>
+//         {showNotificationsDropdown && (
+//           <div className="notifications-dropdown">
+//             {notifications.length > 0 ? (
+//               notifications.map((notification) => (
+//                 <p key={notification.id}>{notification.message}</p>
+//               ))
+//             ) : (
+//               <p>No new notifications</p>
+//             )}
+//           </div>
+//         )}
+//         <div className="user-menu">
+//           <UserMenu />
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default Navbar;
+
+// import React, { useState, useEffect } from "react";
+// import "./Navbar.css";
+// import { Link, useLocation } from "react-router-dom";
+// import API from "../../api/index";
+// import UserMenu from "./UserMenu";
+
+// function Navbar({ toggleSidebar, isSidebarOpen, pageTitle }) {
+//   const [showQuickActions, setShowQuickActions] = useState(false);
+//   const [notifications, setNotifications] = useState([]);
+//   const [showNotificationsDropdown, setShowNotificationsDropdown] =
+//     useState(false);
+//   const [ setError ] = useState(null);
+//   const location = useLocation();
+
+//   useEffect(() => {
+//     const fetchNotifications = async () => {
+//       try {
+//         const response = await API.get("/api/notifications");
+//         setNotifications(response.data);
+//       } catch (error) {
+//         console.error("Error fetching notifications:", error);
+//         setError("Failed to load notifications.");
+//       }
+//     };
+
+//     fetchNotifications();
+//   }, []);
+
+//   const handleQuickActionsClick = () => {
+//     setShowQuickActions(!showQuickActions);
+//   };
+
+//   const handleNotificationsClick = () => {
+//     setShowNotificationsDropdown(!showNotificationsDropdown);
+//   };
+
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-left">
+//         <button className="sidebar-toggle" onClick={toggleSidebar}>
+//           {isSidebarOpen ? "\u2630" : "\u00d7"}
+//         </button>
+//         <h1 className="page-title">
+//           {location.pathname === "/"
+//             ? "Home"
+//             : location.pathname.split("/")[1]}
+//         </h1>
+//       </div>
+//       <div className="navbar-center">
+//         <input type="text" placeholder="Search..." className="search-bar" />
+//       </div>
+//       <div className="navbar-right">
+//         <div className="quick-actions">
+//           <button
+//             className="quick-actions-button"
+//             onClick={handleQuickActionsClick}
+//           >
+//             Quick Actions
+//           </button>
+//           {showQuickActions && (
+//             <ul className="quick-actions-dropdown">
+//               <li>
+//                 <Link to="/projects/create">Create New Project</Link>
+//               </li>
+//               <li>
+//                 <Link to="/tasks/assign">Assign Task</Link>
+//               </li>
+//               <li>
+//                 <Link to="/documents/upload">Upload Document</Link>
+//               </li>
+//             </ul>
+//           )}
+//         </div>
+//         <button
+//           className="notifications-button"
+//           onClick={handleNotificationsClick}
+//         >
+//           🔔
+//         </button>
+//         {showNotificationsDropdown && (
+//           <div className="notifications-dropdown">
+//             {notifications.length > 0 ? (
+//               notifications.map((notification) => (
+//                 <p key={notification.id}>{notification.message}</p>
+//               ))
+//             ) : (
+//               <p>No new notifications</p>
+//             )}
+//           </div>
+//         )}
+//         <div className="user-menu">
+//           <UserMenu />
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default Navbar;
+
+// import React, { useState, useEffect } from "react";
+// import "./Navbar.css";
+// import { Link, useLocation } from "react-router-dom";
+// import API from "../../api/index";
+// import UserMenu from "./UserMenu";
+
+// function Navbar({ toggleSidebar, isSidebarOpen, pageTitle }) {
+//   const [showQuickActions, setShowQuickActions] = useState(false);
+//   const [notifications, setNotifications] = useState([]);
+//   const [showNotificationsDropdown, setShowNotificationsDropdown] =
+//     useState(false);
+//   const [error, setError] = useState(null);
+//   const location = useLocation();
+
+//   useEffect(() => {
+//     const fetchNotifications = async () => {
+//       try {
+//         const response = await API.get("/api/notifications");
+//         setNotifications(response.data);
+//       } catch (error) {
+//         console.error("Error fetching notifications:", error);
+//         setError("Failed to load notifications.");
+//       }
+//     };
+
+//     fetchNotifications();
+//   }, []);
+
+//   const handleQuickActionsClick = () => {
+//     setShowQuickActions(!showQuickActions);
+//   };
+
+//   const handleNotificationsClick = () => {
+//     setShowNotificationsDropdown(!showNotificationsDropdown);
+//   };
+
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-left">
+//         <button className="sidebar-toggle" onClick={toggleSidebar}>
+//           {isSidebarOpen ? "\u2630" : "\u00d7"}
+//         </button>
+//         <h1 className="page-title">
+//           {location.pathname === "/"
+//             ? "Home"
+//             : location.pathname.split("/")[1]}
+//         </h1>
+//       </div>
+//       <div className="navbar-right">
+//         <div className="quick-actions">
+//           <button
+//             className="quick-actions-button"
+//             onClick={handleQuickActionsClick}
+//           >
+//             Quick Actions
+//           </button>
+//           {showQuickActions && (
+//             <ul className="quick-actions-dropdown">
+//               <li>
+//                 <Link to="/projects/create">Create New Project</Link>
+//               </li>
+//               <li>
+//                 <Link to="/tasks/assign">Assign Task</Link>
+//               </li>
+//               <li>
+//                 <Link to="/documents/upload">Upload Document</Link>
+//               </li>
+//             </ul>
+//           )}
+//         </div>
+//         <button
+//           className="notifications-button"
+//           onClick={handleNotificationsClick}
+//         >
+//           🔔
+//         </button>
+//         {showNotificationsDropdown && (
+//           <div className="notifications-dropdown">
+//             {notifications.length > 0 ? (
+//               notifications.map((notification) => (
+//                 <p key={notification.id}>{notification.message}</p>
+//               ))
+//             ) : (
+//               <p>No new notifications</p>
+//             )}
+//           </div>
+//         )}
+//         <div className="user-menu">
+//           <UserMenu />
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default Navbar;
+
+// import React, { useState, useEffect } from "react";
+// import "./Navbar.css";
+// import { Link, useLocation } from "react-router-dom";
+// import API from "../../api/index";
+// import UserMenu from "./UserMenu";
+
+// function Navbar({ toggleSidebar, isSidebarOpen, pageTitle }) {
+//   const [showQuickActions, setShowQuickActions] = useState(false);
+//   const [notifications, setNotifications] = useState([]);
+//   const [showNotificationsDropdown, setShowNotificationsDropdown] =
+//     useState(false);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const fetchNotifications = async () => {
+//       try {
+//         const response = await API.get("/api/notifications");
+//         setNotifications(response.data);
+//       } catch (error) {
+//         console.error("Error fetching notifications:", error);
+//         setError("Failed to load notifications.");
+//       }
+//     };
+
+//     fetchNotifications();
+//   }, []);
+
+//   const handleQuickActionsClick = () => {
+//     setShowQuickActions(!showQuickActions);
+//   };
+
+//   const handleNotificationsClick = () => {
+//     setShowNotificationsDropdown(!showNotificationsDropdown);
+//   };
+
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-left">
+//         <button className="sidebar-toggle" onClick={toggleSidebar}>
+//           {isSidebarOpen ? "\u2630" : "\u00d7"}
+//         </button>
+//         <h1 className="page-title">{pageTitle}</h1>
+//       </div>
+//       {/* <div className="navbar-center">
+//         <input type="text" placeholder="Search..." className="search-bar" />
+//       </div> */}
+//       <div className="navbar-right">
+//         <div className="quick-actions">
+//           <button
+//             className="quick-actions-button"
+//             onClick={handleQuickActionsClick}
+//           >
+//             Quick Actions
+//           </button>
+//           {showQuickActions && (
+//             <ul className="quick-actions-dropdown">
+//               <li>
+//                 <Link to="/projects/create">Create New Project</Link>
+//               </li>
+//               <li>
+//                 <Link to="/tasks/assign">Assign Task</Link>
+//               </li>
+//               <li>
+//                 <Link to="/documents/upload">Upload Document</Link>
+//               </li>
+//             </ul>
+//           )}
+//         </div>
+//         <button
+//           className="notifications-button"
+//           onClick={handleNotificationsClick}
+//         >
+//           🔔
+//         </button>
+//         {showNotificationsDropdown && (
+//           <div className="notifications-dropdown">
+//             {notifications.length > 0 ? (
+//               notifications.map((notification) => (
+//                 <p key={notification.id}>{notification.message}</p>
+//               ))
+//             ) : (
+//               <p>No new notifications</p>
+//             )}
+//           </div>
+//         )}
+//         <div className="user-menu">
+//           <UserMenu />
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default Navbar;
+
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { Link, useNavigate } from 'react-router-dom';
-import API from '../../api/index';
+import { Link } from "react-router-dom";
+import API from "../../api/index";
 import UserMenu from "./UserMenu";
 
-function Navbar({ toggleSidebar, isSidebarOpen }) {
+function Navbar({ toggleSidebar, isSidebarOpen, pageTitle }) {
   const [showQuickActions, setShowQuickActions] = useState(false);
   const [notifications, setNotifications] = useState([]);
-  const [showNotificationsDropdown, setShowNotificationsDropdown] = useState(false);
+  const [showNotificationsDropdown, setShowNotificationsDropdown] =
+    useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await API.get('/notifications');
+        const response = await API.get("/api/notifications");
         setNotifications(response.data);
       } catch (error) {
         console.error("Error fetching notifications:", error);
@@ -661,34 +1159,17 @@ function Navbar({ toggleSidebar, isSidebarOpen }) {
     setShowNotificationsDropdown(!showNotificationsDropdown);
   };
 
-  const handleCreateNewProject = () => {
-    // Close the dropdown
-    setShowQuickActions(false);
-    // Navigate to the Create Project page
-    navigate("/projects/create");
-  };
-
-  const handleAssignTask = () => {
-    setShowQuickActions(false);
-    navigate("/tasks/assign");
-  };
-
-  const handleUploadDocument = () => {
-    setShowQuickActions(false);
-    navigate("/documents/upload");
-  };
-
   return (
     <nav className="navbar">
       <div className="navbar-left">
         <button className="sidebar-toggle" onClick={toggleSidebar}>
-          {isSidebarOpen ? "\u2630" : "\u00d7"}
+          {isSidebarOpen ? "\u00d7" : "\u2630"}
         </button>
-        <h1 className="navbar-title">Dashboard</h1>
+        <h1 className="page-title">{pageTitle}</h1>
       </div>
-      <div className="navbar-center">
+      {/* <div className="navbar-center">
         <input type="text" placeholder="Search..." className="search-bar" />
-      </div>
+      </div> */}
       <div className="navbar-right">
         <div className="quick-actions">
           <button
@@ -699,14 +1180,14 @@ function Navbar({ toggleSidebar, isSidebarOpen }) {
           </button>
           {showQuickActions && (
             <ul className="quick-actions-dropdown">
-              <li onClick={handleCreateNewProject}>
-                Create New Project
+              <li>
+                <Link to="/projects/create">Create New Project</Link>
               </li>
-              <li onClick={handleAssignTask}>
-                Assign Task
+              <li>
+                <Link to="/tasks/assign">Assign Task</Link>
               </li>
-              <li onClick={handleUploadDocument}>
-                Upload Document
+              <li>
+                <Link to="/documents/upload">Upload Document</Link>
               </li>
             </ul>
           )}

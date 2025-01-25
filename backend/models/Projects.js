@@ -54,11 +54,12 @@ class Project {
                 start_date, 
                 end_date, 
                 status='Pending',
+                stages = {},
              } = projectData;
             
              const query = `
-                INSERT INTO projects (name, type, department, client_id, location, start_date, end_date, status) 
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8) 
+                INSERT INTO projects (name, type, department, client_id, location, start_date, end_date, status, stages) 
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
                 RETURNING *;
             `;
             const result = await pool.query(query, [
@@ -69,7 +70,8 @@ class Project {
                 location, 
                 start_date, 
                 end_date, 
-                status
+                status,
+                JSON.stringify(stages), // Convert the stages object to a JSON string
             ]);
 
             return result.rows[0]; // Return the newly created project
@@ -91,11 +93,12 @@ class Project {
                 start_date, 
                 end_date, 
                 status,
+                stages,
             } = projectData;
             
             const query = `
                 UPDATE projects 
-                SET name = $1, type = $2, department = $3, client_id = $4, location = $5, start_date = $6, end_date = $7, status = $8, updated_at = CURRENT_TIMESTAMP
+                SET name = $1, type = $2, department = $3, client_id = $4, location = $5, start_date = $6, end_date = $7, status = $8, stages= $9, updated_at = CURRENT_TIMESTAMP
                 WHERE id = $9
                 RETURNING *;
             `;
@@ -109,6 +112,7 @@ class Project {
                 start_date, 
                 end_date, 
                 status,
+                JSON.stringify(stages), // Convert the stages object to a JSON string
                 id,
             ]);
 

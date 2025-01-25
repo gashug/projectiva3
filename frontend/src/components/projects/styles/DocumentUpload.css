@@ -1,0 +1,32 @@
+/* src/components/projects/DocumentUpload.css */
+
+.document-upload-section {
+    margin-bottom: 20px;
+  }
+  
+  .document-upload-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .dropzone:focus {
+    border-color: #007bff; /* Highlight on focus */
+  }
+  
+  .dropzone p {
+    margin: 0;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }

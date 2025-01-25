@@ -119,13 +119,21 @@
     justify-content: space-between;
     align-items: center;
     z-index: 10;
-    width: 100%; /* Navbar takes full width */
+    /* width: 100%; Navbar takes full width */
   }
   
   .navbar-left {
       display: flex;
       align-items: center;
     }
+
+    .page-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+      margin-left: 20px; /* Add margin to the left of the page title */
+      white-space: nowrap;
+    }  
     
     .sidebar-toggle {
       background: none;

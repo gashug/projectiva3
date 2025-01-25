@@ -1,0 +1,150 @@
+/* src/styles/ProjectDetailsPage.css */
+
+.project-details-page {
+    display: flex;
+    gap: 20px;
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  .project-details-container {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .project-details-main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .project-details-header {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .project-details-header h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 5px;
+  }
+  
+  .project-details-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .project-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .project-info-section,
+  .quick-stats-section,
+  .task-management-section,
+  .document-upload-section,
+  .activity-log-section,
+  .comments-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .project-info-section h3,
+  .quick-stats-section h3,
+  .task-management-section h3,
+  .document-upload-section h3,
+  .activity-log-section h3,
+  .comments-section h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 15px;
+  }
+  
+  .project-info-section ul,
+  .quick-stats-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .project-info-section li,
+  .quick-stats-section li {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .project-info-section strong,
+  .quick-stats-section strong {
+    font-weight: 600;
+  }
+  
+  .project-stages-section {
+    margin-bottom: 20px;
+    flex: 0 0 100%; /* Full width for project stages */
+  }
+
+  .sidebar {
+    width: 100px; /* Initial width when open */
+    flex-shrink: 0;
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out; /* Add transition for smooth opening/closing */
+  }
+  
+  .sidebar.open {
+    width: 60px; /* Width when sidebar is closed (icon-only mode) */
+  }
+  
+  .sidebar-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start */
+    gap: 10px; /* Space between icon and text */
+  }
+  
+  .sidebar-icon {
+    font-size: 1.2rem;
+    color: #333; /* Adjust as needed */
+  }
+  
+  /* Hide text when sidebar is collapsed (not open)
+  .sidebar:not(.open) .sidebar-item span {
+    display: none;
+  } */
+  
+  .sidebar-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .project-details-body {
+      flex-direction: column;
+    }
+  
+    .project-info-grid {
+      grid-template-columns: 1fr; /* Stack sections vertically */
+    }
+  
+    .project-info-section,
+    .quick-stats-section,
+    .task-management-section,
+    .document-upload-section,
+    .activity-log-section,
+    .comments-section {
+      flex: 0 0 100%; /* Each section takes full width */
+    }
+  }

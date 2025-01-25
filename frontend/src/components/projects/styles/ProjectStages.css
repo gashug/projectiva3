@@ -1,0 +1,60 @@
+/* src/components/projects/ProjectStages.css */
+
+.project-stages-section {
+  margin-bottom: 20px;
+}
+
+.project-stages-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.stages-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.stages-tabs .tab {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.stages-tabs .tab.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.stage-details {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.stage-name,
+.stage-status,
+.stage-dates {
+  margin-bottom: 5px;
+}
+
+.stage-progress {
+  height: 20px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #28a745; /* Green */
+  width: 0%; /* Initially 0 width */
+  transition: width 0.5s ease-in-out;
+}

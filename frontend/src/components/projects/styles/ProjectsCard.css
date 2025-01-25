@@ -1,0 +1,159 @@
+/* src/components/projects/ProjectCard.css */
+/* .project-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .project-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+  
+  .project-info {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+  }
+  
+  .project-type,
+  .project-department,
+  .project-start-date,
+  .project-end-date {
+    font-weight: 600;
+  }
+  
+  .project-status {
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+  }
+  
+  .status-Pending {
+    color: #fff;
+    background-color: #ffc107;
+  }
+  
+  .status-In-Progress {
+      color: #fff;
+      background-color: #007bff;
+    }
+  
+    .status-Completed {
+      color: #fff;
+      background-color: #28a745;
+    }
+  
+    .status-On-Hold {
+      color: #fff;
+      background-color: #dc3545;
+    }
+  
+    .status-Canceled {
+      color: #fff;
+      background-color: #6c757d;
+    }
+  
+  .view-details-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-details-button:hover {
+    background-color: #2980b9;
+  } */
+
+  .project-card-link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits the color from the parent element */
+    display: block; /* Makes the link fill the card for better clickability */
+  }
+  
+  .project-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px); /* Slightly raise the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+  }
+  
+  .project-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+  
+  .project-info {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+  }
+  
+  .project-type,
+  .project-department,
+  .project-start-date,
+  .project-end-date {
+    font-weight: 600;
+  }
+  
+  .project-status {
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+  }
+  
+  .status-Pending {
+    color: #fff;
+    background-color: #ffc107;
+  }
+  
+  .status-In-Progress {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .status-Completed {
+    color: #fff;
+    background-color: #28a745;
+  }
+  
+  .status-On-Hold {
+    color: #fff;
+    background-color: #dc3545;
+  }
+  
+  .status-Canceled {
+    color: #fff;
+    background-color: #6c757d;
+  }

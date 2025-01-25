@@ -1,0 +1,60 @@
+/* src/components/projects/CommentsSection.css */
+
+.comments-section {
+    margin-bottom: 20px;
+  }
+  
+  .comments-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .comments-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .comment {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+  }
+  
+  .comment-date {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  .comment-message {
+    font-size: 0.9rem;
+  }
+  
+  .comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  .comment-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .comment-form button:hover {
+    background-color: #0056b3;
+  }

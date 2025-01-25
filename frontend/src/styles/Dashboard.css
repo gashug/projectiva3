@@ -338,7 +338,7 @@ Media query for smaller screens
 
 /* src/pages/Dashboard.css */
 
-.dashboard-container {
+/* .dashboard-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -361,17 +361,17 @@ Media query for smaller screens
   }
   
   .sidebar {
-    width: 200px; /* Initial width when open */
+    width: 200px; Initial width when open
     flex-shrink: 0;
     background-color: #e9ecef;
     padding: 20px;
     border-radius: 5px;
     overflow: hidden;
-    transition: width 0.3s ease-in-out; /* Add transition for smooth opening/closing */
+    transition: width 0.3s ease-in-out; Add transition for smooth opening/closing
   }
   
   .sidebar.open {
-    width: 20px; /* Width when sidebar is closed (icon-only mode) */
+    width: 20px; Width when sidebar is closed (icon-only mode)
   }
   
   .sidebar-item {
@@ -381,21 +381,21 @@ Media query for smaller screens
     transition: background-color 0.2s ease-in-out;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align items to the start */
-    gap: 10px; /* Space between icon and text */
+    justify-content: flex-start; Align items to the start
+    gap: 10px; Space between icon and text
   }
   
   .sidebar-icon {
     font-size: 1.2rem;
-    color: #333; /* Adjust as needed */
-  }
+    color: #333; Adjust as needed
+  } */
   
   /* Hide text when sidebar is collapsed (not open) */
   /* .sidebar:not(.open) .sidebar-item span {
     display: none;
   } */
   
-  .sidebar-item:hover {
+  /* .sidebar-item:hover {
     background-color: #f0f0f0;
   }
   
@@ -410,7 +410,7 @@ Media query for smaller screens
     gap: 20px;
   }
   
-  /* Widget Container Styles */
+  Widget Container Styles
   .widget {
     background-color: #fff;
     border-radius: 8px;
@@ -426,22 +426,191 @@ Media query for smaller screens
     text-align: center;
   }
   
-  /* Media query for smaller screens */
+  Media query for smaller screens
   @media (max-width: 768px) {
     .dashboard {
-      flex-direction: column; /* Stack sidebar and main content vertically */
+      flex-direction: column; Stack sidebar and main content vertically
     }
   
     .sidebar {
-      width: 100%; /* Sidebar takes full width */
+      width: 100%; Sidebar takes full width
       margin-bottom: 20px;
     }
   
     .sidebar.open {
-      width: 100%; /* Adjust if needed for your design */
+      width: 100%; Adjust if needed for your design
     }
   
     .dashboard-widgets {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for smaller screens */
-    }
+    /* } */
+  /* }  */
+
+  /* src/pages/Dashboard.css
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.page-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-left: 20px; Add margin to the left of the page title
+  white-space: nowrap;
+}
+
+.sidebar {
+  width: 200px; Initial width when open
+  flex-shrink: 0;
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out; Add transition for smooth opening/closing
+}
+
+.sidebar.open {
+  width: 20px; Width when sidebar is closed (icon-only mode)
+}
+
+.sidebar-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; Align items to the start
+  gap: 10px; Space between icon and text
+}
+
+.sidebar-icon {
+  font-size: 1.2rem;
+  color: #333; Adjust as needed
+} */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh; /* Ensure full viewport height */
+  overflow: auto; /* Allow content to scroll if it exceeds viewport height */
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #343a40;
+}
+
+.sidebar {
+  width: 100px; /* Initial width when open */
+  flex-shrink: 0;
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out; /* Add transition for smooth opening/closing */
+}
+
+.sidebar.open {
+  width: 60px; /* Width when sidebar is closed (icon-only mode) */
+}
+
+.sidebar-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start */
+  gap: 10px; /* Space between icon and text */
+}
+
+.sidebar-icon {
+  font-size: 1.2rem;
+  color: #333; /* Adjust as needed */
+}
+
+/* Hide text when sidebar is collapsed (not open)
+.sidebar:not(.open) .sidebar-item span {
+  display: none;
+} */
+
+.sidebar-item:hover {
+  background-color: #f0f0f0;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.dashboard-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Widget Container Styles */
+.widget {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.widget-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #343a40;
+  text-align: center;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column; /* Stack sidebar and main content vertically */
   }
+
+  .sidebar {
+    width: 100%; /* Sidebar takes full width */
+    margin-bottom: 20px;
+  }
+
+  .sidebar.open {
+    width: 100%; /* Adjust if needed for your design */
+  }
+
+  .dashboard-widgets {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for smaller screens */
+  }
+}
