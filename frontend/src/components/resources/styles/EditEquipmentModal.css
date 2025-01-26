@@ -1,0 +1,111 @@
+/* src/components/resources/equipment/EditEquipmentModal.css */
+
+.edit-equipment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .edit-equipment-modal .modal-content {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 500px; /* Adjust width as needed */
+    max-width: 90%;
+  }
+  
+  .edit-equipment-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc; /* Add a separator line */
+  }
+  
+  .edit-equipment-modal .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .edit-equipment-modal .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    color: #333;
+  }
+  
+  .edit-equipment-modal .close-button:focus {
+    outline: none;
+  }
+  
+  .edit-equipment-modal .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .edit-equipment-modal .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .edit-equipment-modal .form-group input,
+  .edit-equipment-modal .form-group select,
+  .edit-equipment-modal .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .edit-equipment-modal .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .edit-equipment-modal .modal-footer {
+    text-align: right;
+    margin-top: 20px;
+    border-top: 1px solid #ccc; /* Add a separator line */
+    padding-top: 15px;
+  }
+  
+  .edit-equipment-modal .cancel-button,
+  .edit-equipment-modal .submit-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .edit-equipment-modal .cancel-button {
+    background-color: #6c757d; /* Gray color for cancel */
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .edit-equipment-modal .cancel-button:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+  }
+  
+  .edit-equipment-modal .submit-button {
+    background-color: #007bff; /* Blue color for submit */
+    color: #fff;
+  }
+  
+  .edit-equipment-modal .submit-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }

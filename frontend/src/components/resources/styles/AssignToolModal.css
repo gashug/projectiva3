@@ -1,0 +1,104 @@
+/* src/components/resources/tools/AssignToolModal.css */
+
+.assign-tool-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .assign-tool-modal .modal-content {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 400px; /* Adjust width as needed */
+    max-width: 90%;
+  }
+  
+  .assign-tool-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc; /* Add a separator line */
+  }
+  
+  .assign-tool-modal .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold; /* Add font weight for the heading */
+  }
+  
+  .assign-tool-modal .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .assign-tool-modal .close-button:focus {
+    outline: none;
+  }
+  
+  .assign-tool-modal .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .assign-tool-modal .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .assign-tool-modal .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .assign-tool-modal .modal-footer {
+    text-align: right;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+  }
+  
+  .assign-tool-modal .cancel-button,
+  .assign-tool-modal .submit-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .assign-tool-modal .cancel-button {
+    background-color: #6c757d; /* Gray color for cancel */
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .assign-tool-modal .cancel-button:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+  }
+  
+  .assign-tool-modal .submit-button {
+    background-color: #007bff; /* Blue color for assign */
+    color: #fff;
+  }
+  
+  .assign-tool-modal .submit-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }

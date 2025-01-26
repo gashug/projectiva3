@@ -1,0 +1,84 @@
+/* src/components/resources/ToolsInventory.css */
+
+.tools-inventory {
+    padding: 20px;
+  }
+  
+  .inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .inventory-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  .summary-stats {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .summary-stats p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .inventory-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .inventory-controls .search-bar {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .inventory-controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .tools-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tools-list th,
+  .tools-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tools-list th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+  }
+  
+  .tools-list button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .tools-list button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }

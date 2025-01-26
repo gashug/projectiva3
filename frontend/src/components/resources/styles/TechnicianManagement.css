@@ -1,0 +1,83 @@
+/* src/components/resources/TechnicianManagement.css */
+
+.technician-management {
+    padding: 20px;
+  }
+  
+  .technician-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .technician-management-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  .summary-stats {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .summary-stats p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .technician-management-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .filter-dropdown {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .technician-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .technician-list th,
+  .technician-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .technician-list th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+  }
+  
+  .technician-list .action-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .technician-list .action-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+  }

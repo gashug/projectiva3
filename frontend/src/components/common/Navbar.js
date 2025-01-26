@@ -1124,9 +1124,104 @@
 
 // export default Navbar;
 
+// import React, { useState, useEffect } from "react";
+// import "./Navbar.css";
+// import { Link } from "react-router-dom";
+// import API from "../../api/index";
+// import UserMenu from "./UserMenu";
+
+// function Navbar({ toggleSidebar, isSidebarOpen, pageTitle }) {
+//   const [showQuickActions, setShowQuickActions] = useState(false);
+//   const [notifications, setNotifications] = useState([]);
+//   const [showNotificationsDropdown, setShowNotificationsDropdown] =
+//     useState(false);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const fetchNotifications = async () => {
+//       try {
+//         const response = await API.get("/api/notifications");
+//         setNotifications(response.data);
+//       } catch (error) {
+//         console.error("Error fetching notifications:", error);
+//         setError("Failed to load notifications.");
+//       }
+//     };
+
+//     fetchNotifications();
+//   }, []);
+
+//   const handleQuickActionsClick = () => {
+//     setShowQuickActions(!showQuickActions);
+//   };
+
+//   const handleNotificationsClick = () => {
+//     setShowNotificationsDropdown(!showNotificationsDropdown);
+//   };
+
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-left">
+//         <button className="sidebar-toggle" onClick={toggleSidebar}>
+//           {isSidebarOpen ? "\u00d7" : "\u2630"}
+//         </button>
+//         <h1 className="page-title">{pageTitle}</h1>
+//       </div>
+//       {/* <div className="navbar-center">
+//         <input type="text" placeholder="Search..." className="search-bar" />
+//       </div> */}
+//       <div className="navbar-right">
+//         <div className="quick-actions">
+//           <button
+//             className="quick-actions-button"
+//             onClick={handleQuickActionsClick}
+//           >
+//             Quick Actions
+//           </button>
+//           {showQuickActions && (
+//             <ul className="quick-actions-dropdown">
+//               <li>
+//                 <Link to="/projects/create">Create New Project</Link>
+//               </li>
+//               <li>
+//                 <Link to="/tasks/assign">Assign Task</Link>
+//               </li>
+//               <li>
+//                 <Link to="/documents/upload">Upload Document</Link>
+//               </li>
+//             </ul>
+//           )}
+//         </div>
+//         <button
+//           className="notifications-button"
+//           onClick={handleNotificationsClick}
+//         >
+//           🔔
+//         </button>
+//         {showNotificationsDropdown && (
+//           <div className="notifications-dropdown">
+//             {notifications.length > 0 ? (
+//               notifications.map((notification) => (
+//                 <p key={notification.id}>{notification.message}</p>
+//               ))
+//             ) : (
+//               <p>No new notifications</p>
+//             )}
+//           </div>
+//         )}
+//         <div className="user-menu">
+//           <UserMenu />
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default Navbar;
+
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import API from "../../api/index";
 import UserMenu from "./UserMenu";
 
@@ -1135,7 +1230,8 @@ function Navbar({ toggleSidebar, isSidebarOpen, pageTitle }) {
   const [notifications, setNotifications] = useState([]);
   const [showNotificationsDropdown, setShowNotificationsDropdown] =
     useState(false);
-  const [error, setError] = useState(null);
+  const [ setError ] = useState(null);
+  // const location = useLocation();
 
   useEffect(() => {
     const fetchNotifications = async () => {
