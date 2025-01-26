@@ -1,0 +1,71 @@
+/* src/styles/AnalyticsPage.css */
+
+.analytics-container {
+    font-family: "Roboto", sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .analytics-page {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+      width: 100%;
+  }
+  
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  .tabs {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  .tab.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  .tab-content {
+    padding: 20px;
+  }

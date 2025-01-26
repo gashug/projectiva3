@@ -441,7 +441,134 @@
 
 // export default DashboardService;
 
-import ProjectService from "./projectsService.js";
+// import ProjectService from "./projectsService.js";
+// import TaskService from "./taskService.js";
+// import AnalyticsService from "./analyticsService.js";
+// import TechnicianService from "./technicianService.js";
+// import EquipmentService from "./equipmentService.js";
+// import ToolService from "./toolsService.js";
+
+// class DashboardService {
+//   static async getAdminDashboardData() {
+//     try {
+//       console.log("Fetching dashboard data for admin...");
+
+//       // Project Overview
+//       const projectOverview = await AnalyticsService.getDashboardData();
+//       console.log("Project overview:", projectOverview);
+
+//       // Priority Projects (Example: Fetch top 5 projects with closest end_dates)
+//       const allProjects = await ProjectService.getAllProjects();
+//       const priorityProjects = allProjects
+//         .filter(
+//           (project) =>
+//             project.status !== "Completed" &&
+//             project.end_date &&
+//             new Date(project.end_date) >= new Date()
+//         )
+//         .sort((a, b) => new Date(a.end_date) - new Date(b.end_date))
+//         .slice(0, 5);
+//       console.log("Priority projects:", priorityProjects);
+
+//       // Task Summary
+//       const allTasks = await TaskService.getAllTasks();
+//       const overdueTasks = allTasks.filter(
+//         (task) =>
+//           task.status !== "Completed" && new Date(task.due_date) < new Date()
+//       );
+//       console.log("Task summary:", { allTasks, overdueTasks });
+
+//       // Upcoming Deadlines (Example: Fetch projects and tasks with upcoming due dates)
+//       const upcomingDeadlines = [
+//         ...priorityProjects.map((project) => ({
+//           name: project.name,
+//           type: "Project",
+//           due_date: project.end_date,
+//         })),
+//         ...allTasks
+//           .filter(
+//             (task) =>
+//               task.status !== "Completed" &&
+//               task.due_date &&
+//               new Date(task.due_date) >= new Date()
+//           )
+//           .map((task) => ({
+//             name: task.name,
+//             type: "Task",
+//             due_date: task.due_date,
+//           })),
+//       ]
+//         .sort((a, b) => new Date(a.due_date) - new Date(b.due_date))
+//         .slice(0, 5); // Get top 5 upcoming deadlines
+//       console.log("Upcoming deadlines:", upcomingDeadlines);
+
+//       // Resource Management
+//       const technicianSummary = await TechnicianService.getTechnicianSummary();
+//       const equipmentSummary = await EquipmentService.getEquipmentSummary();
+//       const toolSummary = await ToolService.getToolSummary(); 
+
+//       // Access lowStockItems directly from equipmentSummary
+//       const lowStockItems = equipmentSummary.equipmentDetails.filter(
+//         (item) => item.quantity < 5
+//       ).length; // Now correctly counts low stock items
+
+//       console.log("Resource Management:", {
+//         technicianSummary,
+//         equipmentSummary,
+//         toolSummary,
+//         lowStockItems,
+//       });
+
+//       const notifications = []; // Fetch notifications or define static ones
+//       const quickActions = [
+//         { label: "Create New Project", action: "/projects/create" },
+//         { label: "Assign Task", action: "/tasks/assign" },
+//         { label: "Upload Document", action: "/documents/upload" },
+//       ];
+
+//       return {
+//         projectOverview,
+//         priorityProjects,
+//         taskSummary: {
+//           allTasks,
+//           overdueTasks,
+//         },
+//         upcomingDeadlines,
+//         resourceManagement: {
+//             technicianSummary,
+//             equipmentSummary,
+//             toolSummary,
+//             lowStockItems: lowStockItems,
+//           },
+//         notifications,
+//         quickActions,
+//       };
+//     } catch (error) {
+//       console.error("Error fetching admin dashboard data:", error);
+//       throw new Error("Failed to fetch admin dashboard data.");
+//     }
+//   }
+
+//   // ... other methods (getTechnicianDashboardData, etc.)
+
+//   static async getDashboardData() {
+//     try {
+//       // For now, you're only fetching the admin dashboard data
+//       console.log("Fetching dashboard data (no authentication)...");
+//       const dashboardData = await this.getAdminDashboardData();
+
+//       console.log("Dashboard data fetched successfully.");
+//       return { ...dashboardData };
+//     } catch (error) {
+//       console.error("Error fetching dashboard data:", error);
+//       throw new Error("Failed to fetch dashboard data.");
+//     }
+//   }
+// }
+
+// export default DashboardService;
+
+import ProjectService from "./projectService.js";
 import TaskService from "./taskService.js";
 import AnalyticsService from "./analyticsService.js";
 import TechnicianService from "./technicianService.js";
@@ -454,7 +581,7 @@ class DashboardService {
       console.log("Fetching dashboard data for admin...");
 
       // Project Overview
-      const projectOverview = await AnalyticsService.getDashboardData();
+      const projectOverview = await AnalyticsService.getProjectOverviewData(); // Use a specific method for project overview
       console.log("Project overview:", projectOverview);
 
       // Priority Projects (Example: Fetch top 5 projects with closest end_dates)
@@ -505,19 +632,21 @@ class DashboardService {
       // Resource Management
       const technicianSummary = await TechnicianService.getTechnicianSummary();
       const equipmentSummary = await EquipmentService.getEquipmentSummary();
-      const toolSummary = await ToolService.getToolSummary(); 
+      const toolSummary = await ToolService.getToolSummary();
 
-      // Access lowStockItems directly from equipmentSummary
       const lowStockItems = equipmentSummary.equipmentDetails.filter(
         (item) => item.quantity < 5
-      ).length; // Now correctly counts low stock items
-
+      ).length;
       console.log("Resource Management:", {
         technicianSummary,
         equipmentSummary,
         toolSummary,
         lowStockItems,
       });
+
+      // Fetch analytics data
+      const analytics = await AnalyticsService.getAnalyticsDashboardData();
+      console.log("Analytics data:", analytics);
 
       const notifications = []; // Fetch notifications or define static ones
       const quickActions = [
@@ -535,11 +664,12 @@ class DashboardService {
         },
         upcomingDeadlines,
         resourceManagement: {
-            technicianSummary,
-            equipmentSummary,
-            toolSummary,
-            lowStockItems: lowStockItems,
-          },
+          technicianSummary,
+          equipmentSummary,
+          toolSummary,
+          lowStockItems,
+        },
+        analytics,
         notifications,
         quickActions,
       };

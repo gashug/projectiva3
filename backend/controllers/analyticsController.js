@@ -50,3 +50,12 @@ export const getInventoryAnalytics = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const getAnalyticsDashboardData = async (req, res) => {
+  try {
+    const data = await AnalyticsService.getAnalyticsDashboardData();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

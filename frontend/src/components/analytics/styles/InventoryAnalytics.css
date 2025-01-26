@@ -1,0 +1,32 @@
+/* src/components/analytics/InventoryAnalytics.css */
+
+.inventory-analytics {
+    padding: 20px;
+  }
+  
+  .inventory-analytics h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .inventory-analytics .widget {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .inventory-analytics .widget h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .inventory-analytics .widget p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Add more styles as needed for charts, tables, etc. */

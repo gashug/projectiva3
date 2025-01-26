@@ -1,0 +1,26 @@
+/* src/components/analytics/DetailedReports.css */
+
+.detailed-reports {
+    /* Use your existing widget styles */
+  }
+  
+  .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .reports-table th,
+  .reports-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .reports-table th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+  }
+  
+  .reports-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Optional: Alternate row colors */
+  }

@@ -281,7 +281,7 @@ function DashboardLayout({
       <div className="page-wrapper">
         <div
           className={`sidebar ${isSidebarOpen ? "" : "closed"}`}
-          style={{ width: isSidebarOpen ? "" : "open" }}
+          style={{ width: isSidebarOpen ? "open" : "" }}
         >
           <Link to="/dashboard" className="sidebar-item">
             <FontAwesomeIcon
